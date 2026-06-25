@@ -1,0 +1,2199 @@
+
+
+===== PAGE 1 =====
+MASTEROPPGAVE
+MAIKT
+Mai 2026
+Design av prototype til et digitalt hjelpemiddel for elever med eksekutive
+vansker
+Et designvitenskapelig utviklingsarbeid
+45 stp. oppgave
+Stian Glomsrød
+OsloMet – storbyuniversitetet
+Fakultet for lærerutdanning og internasjonale studier
+Institutt for grunnskole- og faglærerutdanning
+
+===== PAGE 2 =====
+Sammendrag
+Mange elever i norsk skole strever med å planlegge, prioritere og holde
+oversikt over skolearbeidet. Slike ferdigheter omtales i forskningslitteraturen
+som eksekutive funksjoner. Eksisterende digitale hjelpemidler for denne
+elevgruppen forutsetter individuelle søknader og er utformet for
+enkeltbrukere, noe som gjør dem lite egnet i vanlig klasseromsbruk. Denne
+oppgaven er todelt og består av en fungerende prototype og en skriftlig
+begrunnelse og evaluering av denne. Problemstillingen er:
+Hvordan kan et digitalt hjelpemiddel designes for å støtte elever med
+eksekutive vansker i å strukturere og prioritere skolearbeid?
+Forskningstilnærmingen er designvitenskap (March & Smith, 1995), og
+designmetodikken er deltakende design (Simonsen & Robertson, 2013;
+Sanders & Stappers, 2014). Fem kontaktlærere ved én norsk barneskole
+deltok som meddesignere i tre workshops over to semestre. I Workshop 1
+ble behov og kontekst kartlagt gjennom empatikart og personas. Workshop 2
+genererte designidéer gjennom Crazy Eights og dot-voting. Workshop 3
+evaluerte den fungerende prototypen gjennom scenariobasert testing. En
+tidligere prototype fungerte som sonde og ble gjort tilgjengelig for deltakerne
+i forkant av Workshop 1.
+Analysen av workshopmaterialet resulterte i fem designprinsipper. Fire
+vokste frem av lærernes bidrag i de generative workshopene: universell
+tilgjengelighet (verktøyet skal nå hele klassen uten at noen skiller seg ut),
+tidsbesparelse for læreren (som forutsetning for adopsjon, ikke et
+tilleggsønske), motivasjon gjennom spillelementer (med opt-in som etisk
+premiss) og autonomistøtte (hjelp som gradvis kan trekkes tilbake etter
+hvert som eleven mestrer mer). Det femte prinsippet,
+ii
+
+===== PAGE 3 =====
+plattformuavhengighet, ble etablert allerede i forløperprosjektet og bekreftet
+av lærerne i begge workshopene.
+Den ferdige prototypen heter Klar og er implementert som en progressiv
+webapplikasjon bygget med React, Next.js og Supabase. Prototypen har to
+brukergrensesnitt, ett for læreren og ett for eleven. Sentrale funksjoner er
+automatisk parsing av ukebrev til strukturerte oppgaver, en hjelpekø der
+eleven kan be om hjelp uten å rekke opp hånda, et XP-system med
+blomsterhage og opt-in, tidsindikatorer og medieinnlevering.
+Workshop 3 validerte alle fem prinsipper og ga dem et operativt språk som
+manglet etter de generative workshopene: anti-stigma-kriterium, opt-in,
+stillas-uttrekking og klassefellesskap. Prinsippene konkretiserer UDL og
+gamification-forskning til designkriterier for norsk barneskolekontekst, noe
+generelle anbefalinger alene ikke gir. Studien viser at deltakende design med
+lærere avdekker erfaringsbasert kunnskap som vanskelig lar seg fange
+gjennom kravspesifikasjoner, og at de fem prinsippene er studiens konkrete
+bidrag. Neste steg er brukertesting med elever.
+En videogjennomgang av prototypen kan sees her:
+https://www.youtube.com/watch?v=yg6kgcdzIYM
+iii
+
+===== PAGE 4 =====
+Innholdsfortegnelse
+Sammendrag ........................................................................................................................ ii
+Innholdsfortegnelse .......................................................................................................... iv
+1 Innledning ........................................................................................................................... 1
+1.1 Bakgrunn for valg av tema ........................................................................................ 1
+1.1.1 Digitale hjelpemidler i skolen ................................................................................ 1
+1.1.2 Forløperen: Sonden .................................................................................................. 2
+1.2 Problemstilling og forskningsspørsmål .................................................................. 3
+1.3 Leseveiledning ................................................................................................................ 4
+2 Teoretisk tilnærming ...................................................................................................... 5
+2.1 Eksekutive funksjoner ................................................................................................. 5
+2.2 Universell utforming og kollektiv bruk .................................................................. 6
+2.3 Gamification og motivasjon ....................................................................................... 7
+2.4 Tilgjengelighet og digitale barrierer ....................................................................... 9
+2.5 Autonomi og selvstendighet .................................................................................... 10
+3 Metodisk tilnærming ..................................................................................................... 12
+3.1 Forskningsdesign og metodisk forankring ......................................................... 12
+3.1.1 Designvitenskap ................................................................................................... 12
+3.1.2 Deltakende design ............................................................................................... 13
+3.1.3 Sonder, verktøykasser og prototyper .......................................................... 14
+3.1.4 Prosjektets forskningsdesign .......................................................................... 16
+3.2 Deltakere og kontekst................................................................................................ 16
+3.3 Etiske betraktninger ................................................................................................... 17
+iv
+
+===== PAGE 5 =====
+3.4 Designverktøy og teknikker ..................................................................................... 18
+3.4.1 Personas og empatikart .................................................................................... 18
+3.4.2 Crazy Eights og prikkstemming ..................................................................... 18
+3.4.3 Journey mapping og evaluering ..................................................................... 19
+3.5 Datainnsamling og -håndtering ............................................................................. 20
+3.6 Analysestrategi ............................................................................................................. 20
+3.7 Bruk av kunstig intelligens ....................................................................................... 21
+3.8 Metodiske begrensninger.......................................................................................... 21
+4 Designprosess og data ................................................................................................ 24
+4.1 Sonden: Pre-design .................................................................................................... 24
+4.2 Workshop 1: Generativ fase.................................................................................... 24
+4.2.1 Gjennomgang av sonden .................................................................................. 24
+4.2.2 Personas og empatikart .................................................................................... 25
+4.2.3 Idémyldring ............................................................................................................ 25
+4.3 Mellomperiode: Gjennomgang og forberedelse ............................................... 26
+4.4 Workshop 2: Evaluering og utvidelse .................................................................. 27
+4.4.1 Aktivitetene ............................................................................................................ 27
+4.4.2 Resultater fra Crazy Eights og prikkstemming ........................................ 28
+4.4.3 Sammenfatning av idéer .................................................................................. 28
+4.5 Mellomperiode 2: Utvikling og prototype-tilgang ........................................... 28
+4.6 Workshop 3: Evaluering ............................................................................................ 31
+4.7 Prototypen: Klar ........................................................................................................... 33
+Transformasjoner, beslutninger og avgrensninger ............................................ 33
+v
+
+===== PAGE 6 =====
+5 Analyse og evaluering .................................................................................................. 36
+5.1 Fra behov til designprinsipper ................................................................................ 36
+Prinsipp 1: Universell tilgjengelighet ....................................................................... 37
+Prinsipp 2: Tidsbesparelse og lav terskel for læreren....................................... 39
+Prinsipp 3: Motivasjon gjennom spillelementer .................................................. 40
+Prinsipp 4: Plattformuavhengighet og enkel tilgang ......................................... 41
+Prinsipp 5: Autonomistøtte .......................................................................................... 41
+5.2 Prototypens samsvar med identifiserte behov ................................................. 43
+6 Evaluering, diskusjon og konklusjon ..................................................................... 46
+6.1 Evaluering av designproduktet ............................................................................... 46
+6.1.1 Universell tilgjengelighet .................................................................................. 46
+6.1.2 Tidsbesparelse for læreren .............................................................................. 47
+6.1.3 Motivasjon gjennom spillelementer .............................................................. 47
+6.1.4 Plattformuavhengighet ...................................................................................... 48
+6.1.5 Autonomistøtte ..................................................................................................... 49
+6.2 Sammenheng med det teoretiske rammeverket ............................................ 50
+6.2.1 Universell utforming og kollektiv bruk ........................................................ 50
+6.2.2 Gamification og motivasjon ............................................................................. 50
+6.2.3 Tilgjengelighet og digitale barrierer ............................................................. 51
+6.2.4 Autonomi og selvstendighet ............................................................................ 52
+6.2.5 Deltakende design i skolen .............................................................................. 52
+6.3 Begrensninger ............................................................................................................... 53
+6.4 Veien videre ................................................................................................................... 54
+6.5 Konklusjon ...................................................................................................................... 55
+vi
+
+===== PAGE 7 =====
+Litteraturliste ....................................................................................................................... 57
+Vedlegg .................................................................................................................................. 62
+Vedlegg 1: Sonden: Elevgrensesnitt ........................................................................... 62
+Vedlegg 2: Sonden: Administrasjonsgrensesnitt .................................................... 63
+Vedlegg 3: Scenariokort til Workshop 3 ..................................................................... 66
+Vedlegg 4: Invitasjon til deltakelse .............................................................................. 70
+Vedlegg 5: Samtykkeskjema .......................................................................................... 73
+Vedlegg 6: Sikt-vurdering ................................................................................................ 74
+Vedlegg 7: Personas ........................................................................................................... 75
+Elevpersona: Erik ............................................................................................................. 76
+Elevpersona: Sofia .......................................................................................................... 78
+Lærerpersona: Njål ......................................................................................................... 80
+Lærerpersona: Jonas...................................................................................................... 82
+Lærerpersona: Ane ......................................................................................................... 84
+Vedlegg 8: Empatikart fra Workshop 1 ...................................................................... 85
+Vedlegg 9: Eksempelskisser vist i Workshop 2 ....................................................... 87
+Vedlegg 10: Redegjørelse for bruk av generativ KI .............................................. 90
+Formål og avgrensning .................................................................................................. 90
+Verktøy og bruksområder ............................................................................................ 90
+Personvern ......................................................................................................................... 91
+Ansvar .................................................................................................................................. 91
+Vedlegg 11: Workshop 2 — Sammenfattelse og designprinsipper .................. 91
+Vedlegg 12: Empatikart-funn fra Workshop 1 ......................................................... 94
+Vedlegg 13: Funksjoner i Klar med rot i designprosessen ................................. 95
+vii
+
+===== PAGE 8 =====
+Vedlegg 14: Crazy Eights-ark med prikkstemming fra Workshop 2 ............... 97
+Vedlegg 15: Topp-stemte idéer fra Workshop 2 ................................................... 103
+Vedlegg 16: Fotografier fra Workshop 3 — journey mapping ......................... 105
+Vedlegg 17: Sammenfatning av funn fra Workshop 3 ....................................... 122
+Vedlegg 18: Belønningssystem — kupongflyten ................................................... 123
+viii
+
+===== PAGE 9 =====
+1 Innledning
+1.1 Bakgrunn for valg av tema
+Organisering, tidsstyring, prioritering og det å holde oversikt over hva man
+skal gjøre, og i hvilken rekkefølge, kan være utfordrende for mange elever i
+norsk skole. Elever som strever med disse ferdighetene, kan oppleve å bli
+møtt med forventninger som ligger over deres forutsetninger, og kan dra
+nytte av kompenserende verktøy. Digitale verktøy kan gi fordeler fremfor
+analoge huskelapper og dagsplaner når det gjelder tilgjengelighet og
+redigeringsmuligheter, og kan for mange elever utgjøre reelle hjelpemidler
+som gjør skolehverdagen mer håndterbar.
+Denne oppgaven springer ut av egne erfaringer som lærer. I arbeidet med
+elever som strever med å vite hva de skal gjøre, i hvilken rekkefølge og når
+de er ferdige, har det blitt tydelig at det mangler lett tilgjengelige digitale
+verktøy som gir målrettet støtte. Det er ikke mangel på digitale hjelpemidler
+generelt, men mange er kompliserte å ta i bruk, dekker andre behov, eller
+har barrierer knyttet til tilgjengelighet og kostnad. Motivasjonen for
+prosjektet er å designe et verktøy som er enkelt, målrettet, tilgjengelig og
+tilpasset, i samarbeid med lærere, som selv er en av brukergruppene og som
+kjenner den andre: elevene.
+1.1.1 Digitale hjelpemidler i skolen
+Ferdighetene som er beskrevet ovenfor (å planlegge, organisere, prioritere
+og holde oversikt) omtales i forskningslitteraturen som eksekutive funksjoner
+(EF). Begrepet utdypes i kapittel 2. En elev som strever med disse
+ferdighetene, kan oppleve skolehverdagen som kaotisk og stressende uten
+trygge rammer og tilrettelagt tilgang til informasjon og støtte.
+1
+
+===== PAGE 10 =====
+I den norske skolen er tilpasset opplæring et grunnleggende prinsipp, og
+digitale hjelpemidler kan være en del av slik tilrettelegging. Eksisterende
+digitale løsninger for struktur og tidsstøtte, som MemoAssist Plus Premium
+og HandiKalender, distribueres gjennom NAVs hjelpemiddelsentralordning på
+rammeavtalen for kalendere, dagsplanleggere og tidtakere (NAV, 2023, u.å.-
+a, u.å.-b). Slike løsninger er kun tilgjengelige som apper for iOS og Android,
+mens mange elever bruker PC i skolen, og de forutsetter individuell søknad
+og behovsmelding per bruker. De er dermed primært utformet for
+enkeltbrukere og ikke for hele klassemiljøer. Samtidig kan skolens egen
+digitale infrastruktur stille kognitive krav som elever med eksekutive vansker
+ikke har oppnådd (se kapittel 2.4). Disse barrierene motiverte meg til å
+forsøke å utvikle et åpent, målrettet og plattformuavhengig alternativ.
+1.1.2 Forløperen: Sonden
+Høsten 2024 gjennomførte fire studenter et deltakende designprosjekt med
+ungdomsskoleelever som meddesignere. Målet var å designe en prototype til
+et digitalt hjelpemiddel som skulle støtte elevene i å holde oversikt over og
+prioritere arbeidsoppgaver. Prosjektet ble gjennomført som en del av et
+emne i masterstudiet Digitalt Læringsdesign ved OsloMet. Jeg var én av de
+fire studentene i dette prosjektet, og det er erfaringene og prototypen fra
+dette arbeidet som danner utgangspunktet for denne oppgaven.
+Gjennom samtaler og workshops kom vi frem til kravspesifikasjoner og
+designvalg: en landingsside med fagkort, notifikasjonstall, farger og
+animasjoner knyttet til prioritering, lenker til læringsressurser, og
+gamification-elementer som poeng, nivåer og konfettianimasjon. Prototypen
+ble implementert som en responsiv webapplikasjon, og var dermed
+plattformuavhengig. Siden prosjektet fokuserte på elevenes behov, var det
+kun elevenes brukergrensesnitt som ble designet (se Vedlegg 1).
+2
+
+===== PAGE 11 =====
+Oppgavetildeling og brukeradministrasjon ble utført gjennom et
+administrasjonsgrensesnitt (se Vedlegg 2). Her fantes et potensial for videre
+utvikling med fokus på lærernes brukergrensesnitt.
+Etter Sanders og Stappers' (2014, s. 9) terminologi kan denne prototypen
+betraktes som en sonde: noe designerne skaper og sender ut til brukerne i
+forkant av designaktivitetene, slik at brukerne kan interagere med og
+reagere på den. Begrepet utdypes i kapittel 3.
+1.2 Problemstilling og forskningsspørsmål
+Formålet med dette designvitenskapelige utviklingsarbeidet er å
+videreutvikle det digitale hjelpemiddelet med den hensikt å støtte elever med
+eksekutive vansker i å strukturere og prioritere skolearbeid. Oppgavens
+problemstilling er:
+Hvordan kan et digitalt hjelpemiddel designes for å støtte elever med
+eksekutive vansker i å strukturere og prioritere skolearbeid?
+For å belyse problemstillingen er følgende forskningsspørsmål formulert:
+- Hvilke behov og ønsker identifiserer lærere for et slikt hjelpemiddel
+gjennom deltakende designaktiviteter?
+- Hvilke designprinsipper for et digitalt hjelpemiddel for elever med
+eksekutive vansker vokser frem gjennom en deltakende designprosess
+med lærere?
+Det første forskningsspørsmålet er rettet mot innholdet i designprosessen og
+hva deltakerne bringer inn. Det andre spørsmålet er rettet mot resultatet og
+hvilke prinsipper som kan artikuleres på bakgrunn av prosessen.
+Prosjektet avgrenses til lærere som meddesignere. Elever deltok som
+meddesignere i forløperprosjektet (sonden), men er ikke direkte deltakere i
+3
+
+===== PAGE 12 =====
+dette prosjektets workshops. Brukergrensesnittet designes likevel for begge
+grupper.
+1.3 Leseveiledning
+Oppgaven er strukturert i seks kapitler. Kapittel 2 etablerer det teoretiske
+grunnlaget for domenet prototypen er rettet mot: eksekutive funksjoner,
+universell utforming, motivasjon og spillelementer, tilgjengelighet og
+autonomi. Kapittel 3 redegjør for den metodiske tilnærmingen, inkludert
+designvitenskap som forskningstilnærming, deltakende design som metodisk
+forankring, deltakere, etikk og analysestrategi. Kapittel 4 beskriver
+designprosessen kronologisk: fra pre-design gjennom tre workshops til den
+ferdige prototypen. Kapittel 5 presenterer analysen av workshopdata og de
+designprinsippene som vokser frem. Kapittel 6 evaluerer prototypen gjennom
+Workshop 3, diskuterer funnene i lys av teorien fra kapittel 2 og trekker
+konklusjoner.
+4
+
+===== PAGE 13 =====
+2 Teoretisk tilnærming
+Dette kapittelet etablerer det teoretiske grunnlaget for domenet prototypen
+er rettet mot. Utgangspunktet er eksekutive funksjoner: hva de er, og hva
+som skjer når de svikter i en skolekontekst. Deretter behandles fire områder
+som er sentrale for utformingen av digitale verktøy i dette landskapet:
+universell utforming og kollektiv bruk, motivasjon og spillelementer,
+tilgjengelighet og digitale barrierer, og autonomi og selvstendighet. Disse
+områdene danner det teoretiske rammeverket for diskusjonen av
+designprosessen og funnene i kapittel 5 og 6.
+2.1 Eksekutive funksjoner
+Eksekutive funksjoner (EF) er en samlebetegnelse for de mentale prosessene
+vi bruker når det å handle på autopilot ville vært utilstrekkelig: evnen til å
+konsentrere seg, motstå impulser, tenke før vi handler og tilpasse oss nye
+situasjoner (Diamond, 2013, s. 136). Diamond skiller mellom tre
+kjernekomponenter: inhibitorisk kontroll (å styre oppmerksomhet og atferd
+og overstyre indre eller ytre stimuli), arbeidsminne (å holde og bearbeide
+informasjon mentalt) og kognitiv fleksibilitet (å skifte perspektiv og tilpasse
+seg endrede krav). De tre er gjensidig avhengige, og fra dem bygges
+høyere-ordens funksjoner som planlegging, resonnering og problemløsning
+(Diamond, 2013, s. 137–151).
+I skolekontekst er EF en sterkere prediktor for skolemodenhet enn IQ eller
+faglige forkunnskaper, og predikerer både matematikk- og lesekompetanse
+gjennom hele skoleløpet (Diamond, 2013, s. 137). Prefrontal cortex, som er
+sentral for EF, er særlig sårbar: stress, søvnmangel og emosjonell belastning
+kan gi seg utslag i svakere EF og få elever til å fremstå som om de har en
+EF-forstyrrelse uten at det er tilfellet (Diamond, 2013, s. 153). Et
+gjennomgående funn er at de elevene som henger mest etter, er de som
+5
+
+===== PAGE 14 =====
+tjener mest på EF-rettede tiltak, forutsatt at vanskelighetsgraden økes
+gradvis, slik at aktiviteten verken blir kjedelig eller overveldende (Diamond,
+2013, s. 154–155).
+Forskningen peker mot strukturerende, visuelt orienterte og digitale
+tilnærminger som virkningsfulle for elever med eksekutive vansker. Gunnars
+(2024, s. 264–265) fremhever digital teknologi som et lovende felt for EF-
+intervensjoner i barneskolen, men påpeker at evidensgrunnlaget er svakt og
+at lærere mangler veiledning i å velge egnede verktøy, et gap
+Swartzendruber (2024, s. 122) bekrefter fra ungdomsskolens
+lærerperspektiv. Koyama og Wang (2011, s. 2239–2240) finner at visuelle
+aktivitetsplaner kan fremme selvstendig fungering, og Janeslätt et al. (2014,
+s. 187) viser positiv effekt av tidshjelpemidler for barn med
+funksjonsnedsettelser. Andersen og Jensen (2018, s. 23) konstaterer at
+feltet for assisterende læringsteknologi for elever med ADHD og
+autismespekterforstyrrelser — grupper der EF-vansker er særlig
+fremtredende — er fragmentert, med tydelig potensial for målrettede,
+tilgjengelige verktøy.
+2.2 Universell utforming og kollektiv bruk
+En sentral utfordring ved digitale hjelpemidler rettet mot enkeltelever er
+stigmatisering: et verktøy som oppleves som «spesialverktøy» kan forsterke
+opplevelsen av å skille seg ut. Et alternativ er å designe verktøy som er
+nyttige for alle elever, men særlig støttende for de som trenger det mest, i
+tråd med Universal Design for Learning (UDL).
+UDL er et pedagogisk rammeverk som overfører Ronald Maces arkitektoniske
+prinsipp om proaktiv tilrettelegging til utdanning: læringsopplevelser skal
+være inkluderende fra starten av, ikke gjennom reaktive tilpasninger i
+etterkant (Sewell et al., 2022, s. 365). Rammeverket hviler på tre pilarer
+6
+
+===== PAGE 15 =====
+som gjenspeiler hvert sitt nevrologiske nettverk: engasjement («hvorfor»),
+representasjon («hva») og handling og uttrykk («hvordan»). Det innebærer
+at undervisningen bør tilby fleksibilitet i hvordan elever motiveres,
+presentere informasjon i flere modaliteter, og åpne for ulike måter å vise og
+bearbeide kunnskap på. Den siste pilaren er eksplisitt knyttet til eksekutive
+funksjoner (målsetting, selvmonitorering, planlegging og organisering), og
+skal anvendes som veiledende prinsipper, ikke som en sjekkliste (Sewell et
+al., 2022, s. 365–367).
+Cramer et al. (2011, s. 9) gir empirisk støtte til prinsippet om kollektiv bruk:
+interaktive visuelle planer designet for klassen som enhet — fremfor
+individuell bruk — skapte positive fellesskapsrutiner, og forfatterne anbefaler
+at slik kollektiv tilnærming utforskes for andre elevgrupper enn de med
+autisme. I en norsk skolekontekst korresponderer dette med prinsippet om
+tilpasset opplæring: et universelt utformet verktøy kan bidra til å realisere
+retten til opplæring tilpasset elevens forutsetninger uten å forutsette
+individuell diagnostisering.
+2.3 Gamification og motivasjon
+Elever med eksekutive vansker kan oppleve gjentatte nederlag i møte med
+skolens forventninger. I utformingen av digitale hjelpemidler er det derfor
+viktig å forstå hva som styrker og hva som undergraver motivasjon, og
+hvilken rolle spillelementer kan ha.
+Deterding et al. (2011, s. 9–13) definerer gamification som bruk av
+spilldesignelementer i ikke-spillkontekster. Det handler ikke om å lage
+fullverdige spill, men om å hente inn elementer som poeng, nivåer, merker,
+progresjonsindikatorer og tilbakemelding i kontekster der de opprinnelig ikke
+hører hjemme. Deterding et al. (2011, s. 12) skiller mellom flere nivåer av
+spilldesignelementer, fra konkrete grensesnittmønstre til overordnede
+7
+
+===== PAGE 16 =====
+prinsipper som klare mål og tilbakemelding. For et digitalt hjelpemiddel
+rettet mot elever med eksekutive vansker er begge nivåene relevante.
+Selvbestemmelsesteorien (Self-Determination Theory, SDT) gir et
+rammeverk for å forstå når slike elementer faktisk støtter motivasjon. Ryan
+og Deci (2000, s. 55–58) skiller mellom indre motivasjon (å handle for
+aktivitetens egen skyld) og ytre motivasjon, som varierer fra rent kontrollert
+til autonom regulering. SDT identifiserer tre grunnleggende psykologiske
+behov: autonomi, kompetanse og tilhørighet. Indre motivasjon styrkes når
+en person opplever både kompetansefølelse og selvbestemmelse, mens
+kontrollerende læringsmiljøer kan svekke initiativ og læring, særlig når
+oppgaven krever kreativ eller konseptuell bearbeiding (Ryan & Deci, 2000, s.
+58–59). For oppgaver som ikke er iboende interessante, beskriver Ryan og
+Deci (2000, s. 60–64) hvordan ytre motivasjon kan internaliseres ved å gi
+mening, støtte kompetanse og bevare autonomi.
+Ryan og Deci (2000, s. 59) dokumenterer at «tilnærmet alle typer
+forventede, materielle belønninger som gjøres betinget av oppgaveutførelse,
+undergraver indre motivasjon». Naive implementeringer av spillelementer,
+som ledertavler som skaper konkurranse eller poengsystemer som oppleves
+som kontrollerende, kan dermed virke mot sin hensikt. Hamari et al. (2014,
+s. 4–6) konkluderer i en systematisk gjennomgang at gamification i
+hovedsak virker, men at effektene er sterkt kontekst- og brukeravhengige;
+særlig konkurranseelementer kan oppleves negativt av enkelte. De advarer
+også mot en mulig novelty-effekt. For elever med ADHD spesifikt finner
+Alabdulakareem og Jamjoom (2020, s. 6) at gamifiserte intervensjoner kan
+forbedre eksekutive funksjoner. Diamond (2013, s. 154–155) understreker
+at vanskelighetsgraden må stige gradvis for at gevinsten skal opprettholdes,
+et prinsipp gamification-elementer som progressiv vanskelighetsgrad og
+synlig fremgang kan understøtte. For barn med autismespekterforstyrrelser
+8
+
+===== PAGE 17 =====
+og ADHD tilbyr symboløkonomi (token economy) en strukturert variant av
+dette: tokens tildeles som forsterkning og løses inn mot belønninger (Matson
+& Boisjoli, 2009, s. 240–241), og digitaliserte versjoner viser positiv effekt
+på eksekutive funksjoner (Kim, 2025, s. 15).
+2.4 Tilgjengelighet og digitale barrierer
+Skolens digitale infrastruktur, som omfatter læringsplattformer, digitale
+lærebøker og kommunikasjonsverktøy, forutsetter ofte et nivå av
+selvregulering og eksekutiv kapasitet elever med EF-vansker ikke har
+oppnådd. Dorsch (2024, s. 122–123) finner at hensiktsmessig bruk av et
+læringsplattformsystem (LMS) krever at eleven allerede har utviklet de
+eksekutive ferdighetene navigeringen forutsetter, og at det kreves opplæring
+og konsistent bruk over tid for at slike ferdigheter skal utvikles. Resultatet
+kan bli at digitale verktøy som er ment å hjelpe, i stedet forsterker
+opplevelsen av å ikke mestre.
+I tillegg finnes det praktiske barrierer. Mange eksisterende digitale
+hjelpemidler er plattformavhengige og lisenspliktige. Erfaringsmessig krever
+anskaffelse gjennom NAV tid som gjør det vanskelig for læreren å vurdere
+verktøyets egnethet før det er i bruk, og kan forsinke iverksetting av
+nødvendig støtte.
+Forskning på EF gir konkrete føringer for grensesnittutforming. Diamond
+(2013, s. 143–145) viser at visuelle ledetråder markant forbedrer inhibitorisk
+kontroll, mens arbeidsminneoverbelastning er en reell barriere: irrelevant
+informasjon som ikke ryddes vekk, legger beslag på begrenset kapasitet og
+kan gå ut over den egentlige oppgaven. Et digitalt hjelpemiddel bør derfor
+presentere informasjon trinnvis og gi tydelige visuelle holdepunkter for hva
+som er neste steg. Wood et al. (1976, s. 95–96) viser videre at barn på
+9
+
+===== PAGE 18 =====
+lavere mestringsnivå har mer nytte av direkte demonstrasjon (showing) enn
+av verbal instruksjon (telling), og at modaliteten må tilpasses elevens nivå.
+2.5 Autonomi og selvstendighet
+Et sentralt spørsmål i utformingen av hjelpemidler er skillet mellom å gjøre
+noe for eleven og å sette eleven i stand til å gjøre noe selv. Et verktøy som
+overtar funksjonene eleven strever med, kan skape avhengighet; et verktøy
+som gradvis bygger opp elevens egen kapasitet, fremmer selvstendighet.
+Begrepet scaffolding beskriver denne gradvise tilpasningen av støtten.
+Wood et al. (1976) introduserer scaffolding som en prosess der en voksen
+«kontrollerer de elementene av oppgaven som i utgangspunktet ligger
+utenfor den lærendes kapasitet, slik at vedkommende kan konsentrere seg
+om og fullføre de elementene som er innenfor rekkevidde» (s. 90). Et
+kjennetegn ved effektiv scaffolding er at støtten avtar etter hvert som
+kompetansen øker (s. 97), og tre av de seks scaffolding-funksjonene Wood
+et al. (s. 98–99) beskriver er særlig relevante for et digitalt hjelpemiddel:
+retningsopprettholdelse (å holde eleven på sporet mot det overordnede
+målet når mestring av delmål kan avlede fra neste steg), frustrasjonskontroll
+(å gjøre problemløsning mindre stressende med støtte enn uten) og
+reduksjon av frihetsgrader (å forenkle oppgaven til de delene eleven kan
+håndtere, mens verktøyet fyller inn resten).
+Ryan og Deci (2000, s. 58–59) viser at opplevd autonomi er en forutsetning
+for at kompetansefølelse skal øke indre motivasjon. Elever som opplever høy
+grad av ekstern kontroll, mister initiativ og lærer dårligere når læringen
+krever kompleks bearbeiding. For full internalisering må eleven forstå hvorfor
+en oppgave er viktig, ikke bare hva som skal gjøres (Ryan & Deci, 2000, s.
+64). For et digitalt hjelpemiddel innebærer dette at verktøyet bør gi reelle
+10
+
+===== PAGE 19 =====
+valgmuligheter og invitere til selvbestemmelse, ikke påtvinge én bestemt
+fremgangsmåte.
+Koyama og Wang (2011, s. 2240) peker på faren for prompt dependency:
+elever som er vant til konstant tilbakemelding fra en voksen, kan bli
+avhengige av denne støtten i stedet for å utvikle egne strategier. Visuelle
+aktivitetsplaner kan motvirke dette ved å gi eleven et eksternt holdepunkt
+som gradvis internaliseres. Diamond (2013, s. 144, 151) beskriver en
+tilsvarende progresjon: barnet starter med visuell støtte og ekstern
+regulering, beveger seg mot internalisering og ender med selvstendig
+mestring, en bevegelse fra reaktiv til proaktiv kontroll. Autonomi er dermed
+både et mål og en metode.
+11
+
+===== PAGE 20 =====
+3 Metodisk tilnærming
+Kapittelet redegjør for prosjektets metodiske grunnlag og forskningsdesign,
+deltakerne og konteksten, etiske betraktninger, designverktøy og teknikker,
+datainnsamling, analysestrategi, reliabilitet og metodiske begrensninger.
+3.1 Forskningsdesign og metodisk forankring
+3.1.1 Designvitenskap
+March og Smith (1995, s. 252) skiller mellom deskriptiv forskning, som søker
+å forstå informasjonsteknologi, og preskriptiv forskning, som søker å
+forbedre dens ytelse. Designvitenskap tilhører den preskriptive tradisjonen
+og spør «hvordan kan vi lage noe som fungerer bedre?». Den preskriptive
+orienteringen gjør tilnærmingen egnet for dette prosjektet, der målet er å
+utvikle en konkret artefakt som svarer på et identifisert problem.
+March og Smith (1995, s. 255–257) beskriver designvitenskap langs to
+dimensjoner: fire forskningsaktiviteter (build, evaluate, theorize, justify) og
+fire forskningsprodukter (constructs, models, methods, instantiations). Build
+og evaluate har designvitenskapelig hensikt, mens theorize og justify har
+naturvitenskapelig hensikt. Constructs er det spesialiserte vokabularet i et
+felt, models uttrykker relasjoner mellom begreper, methods er
+fremgangsmåter, og instantiations er den realiserte artefakten i sine
+omgivelser. Sammenhengen mellom de to dimensjonene fremgår av Figur 1.
+12
+
+===== PAGE 21 =====
+Figur 1: March og Smiths (1995, s. 255) forskningsrammeverk.
+Denne studien plasserer seg i build × instantiation og evaluate ×
+instantiation: prototypen er instansen, utviklingsprosessen er build-
+aktiviteten, og Workshop 3 er den eksplisitte evalueringen. Tyngdepunktet i
+studien ligger på build og evaluate, mens kapittel 6 bidrar med et theorize-
+element gjennom diskusjon av funn i lys av teorien.
+3.1.2 Deltakende design
+Deltakende design har sine røtter i den skandinaviske tradisjonen for
+demokratisering av arbeidsplassen, der arbeidstakere ble involvert i
+utviklingen av teknologi som skulle påvirke deres arbeidssituasjon (Simonsen
+& Robertson, 2013). Tre prinsipper er sentrale for tilnærmingen i dette
+prosjektet: gjensidig læring mellom designere og deltakere, demokratisering
+gjennom at de som utfører arbeidet involveres i utformingen av teknologi
+som skal endre det, og felles språk etablert gjennom konkretiseringsmateriell
+som lar ikke-designere uttrykke seg på egne premisser (Robertson &
+Wagner, 2013, s. 65; Bratteteig et al., 2013, s. 134). At jeg selv er lærer i
+samme kollegium som lærerdesignerne ga et allerede etablert fundament for
+13
+
+===== PAGE 22 =====
+gjensidig læring, der jeg likevel skulle få ny innsikt i kollegaenes utfordringer
+mens de skulle lære om designmuligheter.
+I dette prosjektet opererer jeg i flere roller samtidig: lærer, designer,
+utvikler, fasilitator, kollega og forsker. Blomberg og Karasti (2013, s. 90–91)
+beskriver hvordan skillet mellom forskerrollen og designerrollen kan bli
+utydelig i slike prosjekter. Problematikken behandles nærmere i kapittel 3.3.
+I workshopene vekslet jeg mellom to roller: som fasilitator strukturerte og
+ledet jeg aktivitetene, mens jeg som designer deltok på lik linje med de
+andre i idégenerering, empatikartarbeid, prikkstemming og journeymapping.
+Alle deltakere bortsett fra meg refereres til som lærerdesignere, mens
+begrepet forskerdesigner brukes om min sammensatte rolle. Når alle deltok i
+designaktivitetene som likeverdige, brukes fellesbetegnelsen designerne.
+3.1.3 Sonder, verktøykasser og prototyper
+Sanders og Stappers (2014) etablerer tre begreper som beskriver ulike
+tilnærminger til å skape i en co-designprosess: sonder (probes),
+verktøykasser (toolkits) og prototyper (prototypes). Begrepene har ulik
+hensikt og plasserer seg i ulike faser av prosessen.
+En sonde er noe designerne skaper og sender ut til brukerne, slik at de kan
+interagere med og reagere på den. Hensikten er å identifisere potensielle
+designmuligheter som kan tas med videre i prosessen. Sonden utvikles for
+brukerne i pre-designfasen (Sanders & Stappers, 2014, s. 10–11).
+Prototypen fra høsten 2024 betraktes som sonde i dette prosjektet:
+Lærerdesignerne fikk tilgang til den i forkant av Workshop 1, og deres tanker
+og reaksjoner ble tatt med inn i designprosessen.
+Verktøykassen er de konkrete materialene og språklige komponentene som
+tas i bruk i designaktivitetene — det som gjør det mulig for deltakere uten
+designbakgrunn å delta på egne premisser (Sanders & Stappers, 2014, s. 9;
+14
+
+===== PAGE 23 =====
+Bratteteig et al., 2013, s. 134). I Workshop 1 og 2 besto den av empatikart-
+maler, persona-kort, penner, tusjer og Crazy Eights-ark; i Workshop 3 av
+scenariokort (se Vedlegg 3), post-its i fire farger, tusjer og papirrull til
+journey mapping.
+Prototypen vokser frem gjennom iterasjoner og representerer instansen i
+March og Smiths rammeverk. I motsetning til sonden, som er et verktøy for
+utforskning, er prototypen et manifestert forslag til løsning som kan testes
+og evalueres.
+Figur 2: Sanders og Stappers' (2014, s. 11) reviderte rammeverk for sonder, verktøykasser
+og prototyper.
+Figur 2 viser de fire fasene (pre-design, generativ, evaluerende, post-design)
+og skillet mellom å designe for og med brukerne. Sonden plasseres i pre-
+designfasen, verktøykassen i den generative fasen og prototypen over den
+evaluerende fasen. I dette prosjektet dekkes de tre første fasene; post-
+design faller utenfor prosjektets rammer.
+Yrjönsuuri et al. (2019, s. 143) utdyper prototypers rolle i samarbeidende
+designprosesser i skolekontekst, og identifiserer tre funksjoner: som støtte
+til tankeprosesser, som sosiale formidlere, og som materielle rammer som
+både setter begrensninger og gir inspirasjon til designprosessen. Sonden
+tjente alle tre av disse funksjonene i dette prosjektet: som tankestøtte i den
+generative fasen, som et sosialt omdreiningspunkt deltakerne kunne samle
+15
+
+===== PAGE 24 =====
+seg rundt, og som en konkret materiell ramme som ga retning til
+idéutviklingen.
+3.1.4 Prosjektets forskningsdesign
+Prosjektet kombinerer designvitenskap (March & Smith, 1995) med
+deltakende design (Simonsen & Robertson, 2013) som metode, og følger en
+iterativ struktur med fire hovedfaser som svarer til de tre første fasene i
+Sanders og Stappers' rammeverk (se Figur 2): pre-design (sonden
+distribueres til lærerdesignerne), Workshop 1 (generativ fase med
+empatikart og idémyldring), Workshop 2 (generativ fase med Crazy Eights og
+prikkstemming), og Workshop 3 (evaluerende fase med journey mapping av
+prototypen). Mellom workshopene fant det sted betydelig utviklingsarbeid
+der jeg implementerte funksjonalitet basert på tolkningen av
+workshopdataene. Spenningen mellom deltakernes bidrag og min autonomi
+som utvikler i mellomperiodene er en utfordring i prosjekter der designeren
+også er utvikleren, og diskuteres nærmere i kapittel 6.
+3.2 Deltakere og kontekst
+De fem deltakerne ble rekruttert fra min egen arbeidsplass, en norsk
+offentlig barneskole. Alle var kontaktlærere på ulike trinn med erfaring med
+elever med eksekutive vansker. Rekrutteringen skjedde ved at invitasjoner
+ble sendt på e-post til hele kollegiet (se Vedlegg 4).
+I den første workshopen deltok fem lærere inkludert meg selv, og vi delte
+oss i to grupper under empatikartarbeidet. I den andre workshopen var vi
+seks, da én var ny sammenlignet med den første. I Workshop 3 deltok tre av
+de tidligere lærerdesignerne og én lærerstudent som hospiterte hos én av
+dem. I designaktivitetene deltok jeg på lik linje med lærerdesignerne, mens
+jeg også fasiliterte og i ettertid analyserte dataene som forsker. At
+16
+
+===== PAGE 25 =====
+deltakerne var kollegaer med felles kontekst bidro til et etablert fundament
+av forståelse, men innebærer også at perspektivene reflekterer én bestemt
+skolekontekst.
+3.3 Etiske betraktninger
+Kombinasjonen av rollene som lærer, fasilitator, designer, utvikler, kollega
+og forsker (se kapittel 3.1.2) skaper etiske utfordringer. Robertson og
+Wagner (2013, s. 71–73, 78–79) peker på at maktforhold og
+lojalitetskonflikter bør adresseres eksplisitt i deltakende designprosjekter, og
+følgende tiltak ble iverksatt for å håndtere dette: åpenhet om de ulike rollene
+overfor deltakerne, eksplisitt understreking av at deltakelse var frivillig og
+uten konsekvenser å takke nei til, og parafrasering fremfor direkte sitering
+ved presentasjon av workshopdata for å beskytte deltakernes
+gjenkjennelighet.
+Den kollegiale relasjonen kan ha påvirket deltakernes villighet til å uttrykke
+kritiske synspunkter, men eksisterende tillit kan også ha senket terskelen for
+å dele idéer, noe som kan være viktig for genuin deltakelse. Jeg forsøkte å
+være bevisst på ikke å lede deltakerne mot bestemte løsninger når jeg
+fasiliterte, samtidig som jeg deltok på lik linje under idégenerering og
+prikkstemming. Jeg hadde ikke designerfaring utover enkeltemner i
+masterutdanningen, og likeverdigheten i designkompetanse kan ha bidratt til
+å dempe maktasymmetrien som den sammensatte rollen ellers kunne
+medført.
+Et kritisk perspektiv på prosjektets premiss er også relevant: selv om digitale
+verktøy kan støtte elevers læring, kan teknologi også ha negative effekter på
+eksekutive funksjoner (Swartzendruber, 2024, s. 133). Swartzendruber
+anbefaler at teknologibruk bør være meningsfull og bidra til effektivitet i
+17
+
+===== PAGE 26 =====
+læringsarbeidet, og gjerne veksles med praktiske og analoge aktiviteter som
+håndarbeid og papir-og-blyant-oppgaver.
+Alle deltakere undertegnet samtykkeskjema i forkant (se Vedlegg 5).
+Prosjektet er vurdert og godkjent av Sikt (se Vedlegg 6).
+3.4 Designverktøy og teknikker
+3.4.1 Personas og empatikart
+Personas er en etablert teknikk i brukersentrert design der fiktive
+representanter for brukere konstrueres for å gi designerne et konkret
+utgangspunkt (Ferreira et al., 2015, s. 501). To elevpersonaer og tre
+lærerpersonaer ble utviklet i forkant av den første workshopen (se Vedlegg
+7). Personaene ble utformet med navn, alder, rolle, styrker, frustrasjoner og
+behov, basert på egne erfaringer som kontaktlærer. Elevpersonaene ble også
+representert i sonden med egne tilpassede læringsaktiviteter.
+Empatikart (Lewrick et al., 2018, s. 28) ble brukt som teknikk for å utforske
+personaenes perspektiver. Kartet organiserer deltakernes tanker i kategorier
+som frustrasjoner (pains) og ønsker (gains), og kobler personaene til
+deltakernes egne erfaringer. I Workshop 1 fylte deltakerne ut to empatikart,
+ett for lærerpersona Njål og ett for Jonas, i separate grupper (se Vedlegg 8).
+Gjennomføringen beskrives i kapittel 4.
+3.4.2 Crazy Eights og prikkstemming
+I den andre workshopen ble Crazy Eights brukt som primær
+idégenereringsteknikk. Metoden er beskrevet i Knapp et al. (2016, s. 111–
+113) som en del av Sprint-metodikken, og går ut på at deltakerne bretter et
+ark i åtte felter og skisserer én idé per felt på omtrent ett minutt. Hensikten
+er å tvinge deltakerne til å generere mange idéer raskt, uten å dvele ved
+detaljer.
+18
+
+===== PAGE 27 =====
+Siden deltakerne ikke hadde erfaring med designaktiviteter fra tidligere,
+brukte jeg tid på å forklare metoden og betrygge om at det ikke ble
+forventet høy kvalitet på tegningene. Jeg viste et eget eksempel for å
+demonstrere den lave terskelen for visuell kvalitet (se Vedlegg 9).
+Etter Crazy Eights-aktiviteten ble prikkstemming (dot-voting) brukt for
+evaluering. Hver deltaker fikk selvklebende prikker som de plasserte på
+idéene de opplevde som mest verdifulle. Idéenes opphav ble presentert
+muntlig for gruppen av den respektive opphavspersonen, slik at alle fikk høre
+begrunnelsene før hver runde med prikkstemming. Stemmegivningen ble
+dokumentert kvantitativt (antall stemmer per idé) og inngår i den videre
+bearbeidingen av idéene i kapittel 4.
+3.4.3 Journey mapping og evaluering
+I den tredje workshopen ble det benyttet journey mapping som
+designaktivitet. I motsetning til de to første workshopene, som primært var
+generative, var denne workshopen tydelig evaluerende: Lærerdesignerne
+fikk tilgang til den utviklede prototypen i forkant, og ble bedt om å utforske
+den på egen hånd før workshopen.
+Journey mapping som metode innebærer at deltakerne kartlegger en
+brukerreise langs en tidslinje, identifiserer berøringspunkter (touchpoints),
+og knytter opplevelser og utfordringer til hvert steg (Endmann & Keßner,
+2016, s. 106–107). Metoden forutsetter at deltakerne tar utgangspunkt i
+definerte personas og bruker disse som linse for å oppleve reisen empatisk. I
+denne studien er metoden tilpasset en evaluerende kontekst: I stedet for å
+kartlegge en ukjent brukerreise, kartlegger deltakerne reisen gjennom en
+endelig prototype.
+Som analytiske kategorier benyttes gains og pains: hva deltakerne opplevde
+som nyttig eller positivt, og hva som opplevdes som frustrerende. Disse er
+19
+
+===== PAGE 28 =====
+kjernen i journey mapping-tradisjonen (Endmann & Keßner, 2016, s. 106–
+107) og gir en strukturert inngangsport til vurderingen av prototypen.
+3.5 Datainnsamling og -håndtering
+Alle tre workshopene ble tatt opp med lydopptaker. Lydopptak ble valgt
+fremfor videoobservasjon for å kunne innta en aktiv rolle som designer i
+workshopene, ikke bare som observatør. Opptakene ble transkribert og
+deretter parafrasert (deltakernes utsagn gjengitt med mine egne ord, men
+med oppmerksomhet på å bevare meningsinnholdet), både av hensyn til
+deltakernes gjenkjennelighet og for å fokusere på innholdet i idéene.
+Empatikart, persona-ark, Crazy Eights-ark og journey map-artefakter ble
+dokumentert med fotografier som primærkilder for verifikasjon i ettertid.
+3.6 Analysestrategi
+Workshopdataene ble bearbeidet i to sammenhengende steg. Først ble
+lydopptak, bilder, skisser og empatikart gjennomgått systematisk med sikte
+på å identifisere tilbakevendende behov, idéer og hensyn i materialet.
+Deretter ble disse sammenfattet i fem overordnede funnområder:
+motivasjon/gamification, kommunikasjon, tilrettelegging,
+oversikt/organisering og samarbeid/tilgjengelighet.
+I neste steg ble stemmene fra prikkstemmingen registrert per idé og brukt
+som et supplement i vurderingen av hvilke forslag deltakerne samlet sett
+løftet frem som særlig viktige. Prikkstemmingen gir likevel bare et grovt
+bilde av deltakernes prioriteringer, ettersom enkelte idéer kan ha høy verdi
+uten å bli eksplisitt prioritert med mange stemmer.
+Denne bearbeidingen av materialet danner grunnlaget for analysen i kapittel
+5, der workshopdataene destilleres til designprinsipper. Den eksplisitte
+evalueringen av prototypen gjennom Workshop 3 behandles i kapittel 6.
+20
+
+===== PAGE 29 =====
+3.7 Bruk av kunstig intelligens
+Generativ KI er brukt som støtteverktøy i tekst- og utviklingsarbeidet med
+denne oppgaven. Se Vedlegg 10 for en fullstendig redegjørelse.
+3.8 Metodiske begrensninger
+Studien har flere metodiske begrensninger som påvirker resultatenes
+gyldighet og overførbarhet.
+Deltakergruppen er liten: seks lærere fra én barneskole, der fem deltok i
+Workshop 1, seks i Workshop 2 og 3 og utskiftninger blant deltakerne (se
+kapittel 3.2). Selv om deltakerne representerer ulike trinn og roller, gir
+utvalget begrenset variasjon i perspektiver. Resultatene gjenspeiler denne
+skolens kultur, elevsyn og praksis, og kan ikke uten videre overføres til
+andre kontekster.
+Min sammensatte rolle som masterstudent, kollega, fasilitator, designer og
+utvikler er beskrevet i kapittel 3.3 og kan ha påvirket maktforholdet i
+workshopene. Deltakerne kan ha sensurert seg selv eller tilpasset sine
+bidrag, og potensielle konsekvenser er forsøkt kompensert gjennom
+designverktøy som prioriterer demokratisk deltakelse og gjennom bevissthet
+om problematikken i planlegging og gjennomføring.
+Det er ikke gjennomført brukertesting med elever i denne iterasjonen.
+Prototypen er designet for elever, men med lærere. Selv om lærere har
+verdifull kunnskap om elevenes behov, kan det ikke tas for gitt at løsninger
+designet av lærere faktisk oppleves som nyttige av elevene selv. Dette er en
+vesentlig begrensning som bør adresseres i videre arbeid.
+Designprosessens tidsstruktur byr på egne utfordringer. De to generative
+workshopene ble gjennomført med bare én ukes mellomrom, noe som ga
+21
+
+===== PAGE 30 =====
+begrenset tid til analyse og modning mellom dem. Den tredje, evaluerende
+workshopen fant sted nesten et år etter de to første, etter en lengre periode
+med utvikling, analyse, litteraturgjennomgang og skriving. Dette lange
+oppholdet betyr at deltakerne var ute av designprosessen i en betydelig
+periode, noe som kan ha påvirket kontinuiteten i det deltakende
+designarbeidet. For å kompensere fikk lærerdesignerne tilgang til prototypen
+i forkant, og Workshop 3 åpnet med en oppsummering av hva som var gjort
+og funnet siden sist (se Vedlegg 11). Flere iterasjoner med evaluering og re-
+design ville likevel styrket designets validitet.
+En ytterligere begrensning knytter seg til bruken av ferdiglagde personas. I
+forkant av Workshop 1 utviklet jeg fem detaljerte personas med navngitte
+frustrasjoner, behov og sitater for at den første workshopen skulle gi et rikt
+nok grunnlag innenfor den begrensede tidsrammen. En sammenligning av
+personabeskrivelsene og de utfylte empatikartene viser imidlertid at
+deltakernes bidrag i stor grad speiler det som allerede var definert i
+personaene. Empatikartene bekreftet og utdypet det opprinnelige bildet mer
+enn de utfordret det, og de ferdige personaene kan dermed ha fungert som
+probleminnramming (jf. Farmer, 2021, s. 72) som skjøv alternative
+perspektiver ut av designrommet. Lewrick et al. (2018, s. 28) understreker
+at man i empatifasen bør nærme seg situasjonen «like a beginner», mens de
+ferdiglagde personaene ga deltakerne det motsatte. Et mulig kompromiss
+hadde vært å redusere detaljnivået i personaene slik at empatikartene i
+større grad ble fylt med deltakernes egne perspektiver.
+Begrensningen gjelder først og fremst empatikartfasen i Workshop 1. I de
+påfølgende workshopene var deltakerne friere fra persona-rammen: i
+Workshop 2 introduserte Crazy Eights flere idéer som ikke var
+forhåndsdefinert (push-varsler til smartklokke, blomsterhage,
+kronbladbelønninger, hjelpekøen), og i Workshop 3 vokste det fram
+22
+
+===== PAGE 31 =====
+konsepter som stillas-/krykke-metaforen, klassefellesskap som motvekt til
+individuell gamification, og en lukket sandkasse av venteoppgaver. Persona-
+biasen står derfor sterkest i materialet fra empatikartene.
+23
+
+===== PAGE 32 =====
+4 Designprosess og data
+Kapittelet følger designprosessen kronologisk gjennom Sanders og Stappers'
+(2014) rammeverk (se Figur 2): sonden som utgangspunkt i pre-
+designfasen, de generative workshopene med lærerdesignerne, og den
+evaluerende fasen med prototypen.
+4.1 Sonden: Pre-design
+Prototypen fra 2024 fungerte som sonde i pre-designfasen (se kapittel 1.1.2
+og 3.1.3). I forkant av Workshop 1 fikk lærerdesignerne tilgang til sonden
+gjennom lenke, brukernavn og passord, og kunne logge inn som de to
+elevpersonaene Erik og Sofia (se Vedlegg 7) for å utforske funksjonaliteten
+på egen hånd.
+4.2 Workshop 1: Generativ fase
+Den første workshopen ble gjennomført våren 2025 med fem deltakere,
+varte i omtrent én time og fant sted i et klasserom på skolen etter
+undervisningstid, men fortsatt i arbeidstid. Flere deltakere uttrykte
+bekymring for ikke å kunne nok om design til å bidra. En påminnelse om at
+også forskerdesigner er nybegynner i metodikken lettet uroen, og deltakerne
+uttrykte interesse for å bidra til utviklingen av et verktøy de selv opplevde et
+behov for.
+4.2.1 Gjennomgang av sonden
+Sonden ble presentert på storskjerm (se Vedlegg 1) med et kort innblikk i
+administrasjonsgrensesnittet (se Vedlegg 2). At flere allerede hadde
+utforsket sonden på forhånd samsvarer med Sanders og Stappers' (2014, s.
+10) beskrivelse av sonden som verktøy i pre-designfasen, og bidro til at
+24
+
+===== PAGE 33 =====
+gjennomgangen raskt gikk over i en samtale om muligheter og
+begrensninger.
+4.2.2 Personas og empatikart
+Etter gjennomgangen ble deltakerne introdusert for de to elevpersonaene,
+samt tre lærerpersonaer: Njål, Ane og Jonas. Hensikten med personaene var
+å gi deltakerne et felles utgangspunkt for å «gå i en fremtidig brukers sko»,
+for å oppnå innsikter rundt problemer som skal løses, frustrasjoner og
+ønsker. Deltakerne ble delt i to grupper, og valgte seg ut hver sin
+lærerpersona. Deretter fylte gruppene ut et empatikart hver for sin
+respektive lærerpersona (se Vedlegg 8).
+Empatikartene avdekket to tydelige sett av frustrasjoner og ønsker (se
+Vedlegg 12 for fullstendig sammenstilling). Gruppen som arbeidet med Njål
+beskrev en faglærer som opplever utilstrekkelighet og som i praksis har gitt
+opp – han gjør det han kan, men opplever at situasjonen ikke lar seg løse
+med de ressursene han har. Gruppen som arbeidet med Jonas la vekt på at
+et fremtidig verktøy ikke måtte oppleves som enda en ting som krever mer
+av læreren, men som en faktisk ressurs som gir mer enn det koster.
+Begge gruppene løftet fram analoge dagsplaners begrensninger, mangel på
+oversikt og behovet for et samlende digitalt verktøy. Njål-gruppen tilføyde et
+anti-stigma-perspektiv: verktøyet må kunne brukes av alle elever, ikke bare
+av de med eksekutive vansker, og alle lærere rundt eleven må bruke det for
+at koordineringsproblemet ikke bare skal videreføres.
+4.2.3 Idémyldring
+Etter empatikartarbeidet ble det gjort en kort introduksjon til wireframing
+som designteknikk. Grunnet knapphet på tid ledet dette inn i en åpen
+muntlig idémyldring, der deltakerne foreslo blant annet vikarbruker-
+25
+
+===== PAGE 34 =====
+innlogging, et intuitivt lærergrensesnitt for navigering per time, fargekoder
+etter time/fag/prioritet, individuell tilpasning, sortering etter fag og dag,
+synlig poengverdi per oppgave, reelle belønninger med
+progresjonsindikatorer (avatarer, high-score, streak), lydstøtte med innlest
+oppgavetekst, og personlig velkomstmelding ved daglig første innlogging.
+Disse idéene bæres videre inn i Workshop 2 og er sporbare til funksjoner i
+prototypen (se Vedlegg 13).
+En rød tråd gjennom idémyldringen var at verktøyet måtte oppleves som
+tidsbesparende for læreren, motiverende for eleven, og at det måtte være
+for hele klassen for å forhindre stigma. En deltaker foreslo at bare det å åpne
+appen burde gi poeng, ettersom det å komme i gang i seg selv kan være en
+mestring. En annen etterspurte innlest lærerstemme som alternativ til
+syntetisk tale.
+Deltakerne vekslet mellom lærerens og elevens perspektiv — noe som
+gjenspeiler den gjensidige læringen Simonsen og Robertson (2013) beskriver
+som et grunnleggende prinsipp i deltakende design.
+Hovedfunn fra Workshop 1: Verktøyet må oppleves som tidsbesparende for
+læreren og motiverende for eleven; det må være for hele klassen og ikke
+synlig stigmatiserende; gamification og tilpasning trekkes fram som sentrale
+virkemidler; og lærerens egen stemme (innlest tale, personlig velkomst)
+verdsettes som nærhetsmarkør.
+4.3 Mellomperiode: Gjennomgang og forberedelse
+De to første workshopene ble gjennomført med kun én ukes mellomrom. I
+denne korte perioden ble det ikke gjort noen utvikling av prototypen;
+arbeidet besto i å lytte gjennom lydopptakene, dokumentere fotografiene av
+empatikartene og sammenfatte funnene i et referat som ble delt med
+26
+
+===== PAGE 35 =====
+deltakerne i en Teams-chat. Parallelt ble Workshop 2 designet med
+utgangspunkt i Sprint-metodikkens sketch-steg (Knapp et al., 2016, s. 103–
+118): Crazy Eights ble valgt som primær designaktivitet, og prikkstemming
+som evalueringsfase for et kvantifiserbart datagrunnlag til den påfølgende
+utviklingsperioden.
+4.4 Workshop 2: Evaluering og utvidelse
+Den andre workshopen ble gjennomført med seks deltakere. Også denne
+workshopen fant sted på skolen etter undervisningstid og varte i omtrent
+halvannen time. Workshopen brukte Crazy Eights-metoden som primær
+designaktivitet, etterfulgt av prikkstemming for evaluering.
+4.4.1 Aktivitetene
+Workshopen besto av fire hoveddeler:
+Gjennomgang av idéer fra Workshop 1 (5–10 min): Deltakerne fikk referatet
+og utskrifter av empatikartene, og markerte hvilke idéer som burde tas
+videre. Tidsbesparelse og dynamisk oppdatering ble særlig fremhevet.
+Individuelle drodlinger og tegninger (15 min): Deltakerne fikk tid til frie
+individuelle idéer som rom for mer utdypende tenkning enn den påfølgende
+Crazy Eights-øvelsen.
+Crazy Eights (ca. 12 min): Hvert A3-ark ble brettet til åtte felter, og
+deltakerne fikk halvannet minutt per felt til å tegne eller skrive ned en idé.
+To bevisst enkle eksempler ble vist (se Vedlegg 9) for å senke den kreative
+terskelen.
+Presentasjon og prikkstemming: Hver deltaker presenterte sine åtte idéer,
+og deretter fordelte alle tre selvklebende prikker på de idéene de opplevde
+som mest verdifulle (se Vedlegg 14).
+27
+
+===== PAGE 36 =====
+4.4.2 Resultater fra Crazy Eights og prikkstemming
+Vedlegg 15 gir en samlet oversikt over de ti høyest stemte idéene fra
+workshopens prikkstemming. Idéene som mottok flest stemmer var push-
+varsler til smartklokke (6), ferdigstilte gjøremål-bunke (6) og hjelpefunksjon
+med kø (6), fulgt av avatar med lærerros, kronblader/belønningssystem,
+ukeplan med fargekoder, sjekkliste/test og personlig velkomstmelding (alle 5
+stemmer).
+4.4.3 Sammenfatning av idéer
+Idéene fra workshopen kan sammenfattes i fem overordnede områder:
+motivasjon og gamification, kommunikasjon og tilbakemelding,
+tilrettelegging og individualisering, oversikt og organisering, samt samarbeid
+og tilgjengelighet. Områdene danner grunnlaget for designprinsippene som
+artikuleres i kapittel 5.1. At hjelpekøen, kronblader/belønning og sjekkliste-
+funksjoner ble høyt prioritert, understreker deltakernes fokus på
+autonomistøtte og motivasjon.
+Hovedfunn fra Workshop 2: Hjelpekøen, ferdigstilte gjøremål-bunke og push-
+varsler til smartklokke samlet flest stemmer, belønningssystemer og
+lærerros med avatar konkretiserte motivasjonsbehovet, og oppmøtepoeng
+for å åpne appen ble løftet fram som lavterskel-anerkjennelse for elever som
+strever med å komme i gang.
+4.5 Mellomperiode 2: Utvikling og prototype-tilgang
+I mellomperioden mellom andre og tredje workshop ble prototypen utviklet
+fra grunnen av. Mens sonden fra pre-designfasen var den første iterasjonen
+av designproduktet, representerer denne prototypen den andre iterasjonen,
+bygget på ny teknologi, men forankret i de samme designinnsiktene. Data
+fra begge workshopene lå til grunn for utviklingen.
+28
+
+===== PAGE 37 =====
+Valg og avgrensninger ble gjort av meg som forskerdesigner. Funksjoner
+som flere deltakere etterspurte uavhengig av hverandre, ble prioritert høyere
+enn enkeltforslag, og teknisk gjennomførbarhet innenfor prosjektets
+tidsramme var styrende for hva som lot seg realisere. Et gjennomgående
+prinsipp var at plattformen skulle være enkel og intuitiv for læreren i sin
+laveste bruksform — opprett elever og last opp ukeplanlegger — med opt-in
+for mer avansert bruk, fordi lav inngangsterskel kan anses som en
+forutsetning for læreradopsjon. Noen idéer ble nedprioritert fordi konseptet
+allerede var demonstrert gjennom andre funksjoner. Vedlegg 13 gir en
+samlet oversikt over hvilke funksjoner som ble implementert og hvor i
+designprosessen de har sitt opphav.
+I forkant av Workshop 3 fikk lærerdesignerne tilgang til prototypen gjennom
+lenke, brukernavn og passord, slik at de kunne utforske den på egen hånd
+og danne seg et inntrykk av hvordan idéene fra de to foregående
+workshopene var blitt realisert. I motsetning til sonden, som kun inneholdt
+elevgrensesnittet, inkluderer denne prototypen et fullstendig
+lærergrensesnitt. Mellomperioden speiler dermed pre-designfasen før
+Workshop 1, men med én vesentlig forskjell: deltakerne går fra å reagere på
+andres design til å evaluere realiseringen av sitt eget bidrag.
+Erfaringsgrunnlaget er likevel ujevnt fordelt mellom de to grensesnittene:
+elevgrensesnittet kjente deltakerne fra sonden i Workshop 1 og diskusjonene
+i Workshop 2, mens lærergrensesnittet var nytt og tilgjengelig i ca. tre uker
+før workshopen — en asymmetri som begrenser evalueringens rekkevidde
+(Figur 3 og 4).
+29
+
+===== PAGE 38 =====
+Figur 3: Elevgrensesnittet i Klar — velkomstskjerm (øverst venstre), 42 minutter igjen av
+timen (øverst høyre), oppgaveliste i Samfunnsfag (nederst venstre) og aktivert hjelpekø sett
+fra elevens side (nederst høyre).
+Figur 4: Lærergrensesnittet i Klar — oversiktsside, AI-parset ukebrev, hjelpekøliste med tre
+ventende elever og klasseoversikt med hjelpekø-toggle.
+30
+
+===== PAGE 39 =====
+4.6 Workshop 3: Evaluering
+Workshop 3 ble gjennomført våren 2026 i et klasserom på skolen, med
+varighet på rundt halvannen time. Pulter ble satt sammen til ett langbord, og
+en pultgruppe ble dekket med papirrull som tegneduk for journey mapping.
+Materiellet besto av smartboard for visning av prototypen, post-its i fire
+farger (gule for steg, grønne for gains, røde for pain points, blå for forslag),
+tusjer, lærer-PC og iPad/mobil for elevgrensesnittet, samt ni scenariokort der
+tre ble brukt (se Vedlegg 3). Det ble gjort lydopptak, og journey map-
+artefaktene ble fotografert (se Vedlegg 16).
+Tre kontaktlærere fra de foregående workshopene deltok, sammen med en
+lærerstudent som hospiterte hos én av deltakerne. Studenten ble forespurt
+samme dag, fikk samme informasjonsskriv som øvrige deltakere og signerte
+samtykkeskjema i tråd med Sikt-godkjenningen (se kapittel 3.3).
+Forskerdesigner deltok som tilrettelegger og tidvis designer.
+Workshopen åpnet med en kort oppsummering fra Workshop 1 og 2, deretter
+en demonstrasjon av prototypen Klar fra både lærer- og elevperspektiv, og
+til slutt journey mapping av tre brukerscenarier. De tre scenariene som ble
+valgt — kontaktlærer med hel klasse, læreren som blir syk og må klargjøre
+for vikar, og eleven Erik som sitter fast — dekker tre svært ulike situasjoner:
+kontaktlærer i undervisning, lærer i ekstern situasjon og elev i et kritisk
+øyeblikk. Journey mapping ble forklart med et eksempelkart («bestille mat i
+takeaway-app»), som ble liggende synlig som referanse under arbeidet.
+Ingen av deltakerne hadde tidligere kjennskap til metoden.
+Vedlegg 17 sammenfatter funnene fra hvert scenario, med pains, gains og
+forslag. I korte trekk: i kontaktlærer-scenariet var mangel på aggregert
+leveringsoversikt det sentrale pain pointet, i vikar-scenariet ble AI-parsingen
+av ukeplanleggeren fremhevet som klart tidsbesparende, og selektiv
+31
+
+===== PAGE 40 =====
+versjonering for individuelle planer ble identifisert som nødvendig
+videreutvikling. I elev-scenariet ble hjelpekøen validert som et anti-stigma-
+grep, men problematisert ved lange køer og frie venteoppgaver, og forslaget
+var en lukket sandkasse av relevante venteoppgaver.
+I demonstrasjonsfasen kom det også frem flere førsteinntrykk som er
+relevante for evalueringen i kapittel 6: en rød prikk på ferdigbunken ble
+opplevd som stressende (Figur 5), og forskerdesigner og deltakerne
+diskuterte stillas-/krykke-metaforen for autonomistøtte og klassefellesskap
+som motvekt til individuelle belønninger.
+Figur 5: Arkivknappen med rød badge. Ikonet ble misforstått som sletteknapp, og badgen
+ble beskrevet som angstutløsende.
+Hovedfunn fra Workshop 3: AI-parsing av ukebrev ble sterkest validert som
+adopsjonsdriver, selektiv versjonering for individuelle planer identifisert som
+nødvendig videreutvikling, hjelpekøen validert — men problematisert ved
+lange køer, lukket sandkasse av venteoppgaver foreslått som løsning,
+klassefellesskap-modus løftet fram som motvekt til individuell gamification,
+32
+
+===== PAGE 41 =====
+og stillas-/krykke-metaforen ga prinsippet om autonomistøtte et operativt
+vokabular om hjelp som kan trekkes tilbake.
+4.7 Prototypen: Klar
+Basert på dataene fra begge Workshop 1 og 2 ble prototypen videreutviklet
+til plattformen Klar. Klar er implementert som en progressiv webapplikasjon,
+og er tilgjengelig gjennom en nettleser på alle enheter. Teknisk er den
+bygget med rammeverkene React og Next.js og bruker Supabase som
+backend med PostgreSQL-database. Brukergrensesnittet er responsivt og
+tilpasser seg både mobilskjerm, nettbrett og datamaskin – noe som var et
+bevisst designvalg for å sikre plattformuavhengighet. Autentisering
+håndteres av Supabase Auth, og rollebasert tilgangskontroll sikrer at lærere
+og elever har tilgang til sine respektive grensesnitt.
+Vedlegg 13 gir en samlet oversikt over hvilke funksjoner i Klar som har
+direkte rot i designprosessen, og hvor i prosessen (sonden, Workshop 1 eller
+Workshop 2) hvert opphav ligger. Ikke alle idéer ble implementert slik de ble
+foreslått, og noen funksjoner ble lagt til utover det deltakerne eksplisitt
+foreslo.
+Transformasjoner, beslutninger og avgrensninger
+Mange av de høyest stemte idéene ble realisert, men i annen form enn
+foreslått. Læreravatar med ros ble til emoji-reaksjoner i en popover, skriftlig
+tilbakemelding og en «skrytevegg». Push-varsler til smartklokke er delvis
+realisert som varsler i nettleseren. Innlest lærertale ble implementert som
+tekst-til-tale. Egne lydopptak fra lærer ble ikke prioritert siden lydstøtte
+allerede er demonstrert gjennom elevenes lydinnlevering. Tidsindikatoren ble
+realisert per undervisningstime, ikke per oppgave, fordi oppgavebasert
+tidsmåling reiser uavklarte spørsmål om hvem som starter tellingen og hva
+33
+
+===== PAGE 42 =====
+som skjer hvis eleven glemmer det eller ikke rekker å bli ferdig. Elevens
+landingsside viser tre timer av gangen for å begrense
+arbeidsminnebelastningen.
+Noen funksjoner ble også lagt til uten direkte rot i idélistene. AI-parsing av
+ukeplanleggeren ble prioritert som tidsbesparende alternativ til manuell
+oppgaveoppretting. Alt tolket innhold er redigerbart i et forhåndsvisningssteg
+før publisering. Grupper på tvers av klasser, blant annet for ITO-lærere,
+støtter reelle samarbeidsstrukturer rundt eleven. Medieinnlevering med lyd
+og bilde støtter alternative uttrykksformer etter UDL-prinsippene. Streak og
+oppmøtepoeng er opt-in på elevnivå, slik at læreren kan trekke disse
+elementene tilbake når eleven mestrer alene. Blomsterspillet er tilsvarende
+opt-in: uten aktivert spill kan eleven ikke tjene opp nye blomster, men en
+allerede opptjent hage beholdes slik at eleven ikke opplever å miste noe ved
+nedbygging av stillaset. Generering av barnevennlige passord senker
+terskelen for yngre elever. Oppmøtestreakens akkumulerte modus, der
+fravær pauser progresjonen i stedet for å nullstille den, ble utviklet som
+direkte respons på en bekymring i Workshop 1 om at streakbrudd kan virke
+demotiverende. Figur 6 viser stille omrokering av hjelpekøen. Denne
+funksjonen var opprinnelig utilsiktet, men ble validert i Workshop 3 som
+verdifull funksjonalitet.
+34
+
+===== PAGE 43 =====
+Figur 6: Stille omrokering av hjelpekøen. Læreren løfter Anita Brekke fra plass 3 til plass 1
+via dra-og-slippe, uten at rekkefølgeendringen er synlig for elevene.
+Innenfor tidsrammen var det likevel en del som ikke kom med: privat
+kommentarfelt for voksne, dagsform-innsjekking, klassekonkurranser,
+samarbeidsbonus, prioritets markering for eleven (kun synlig som datofrist i
+lærerens oppgaveoppretter — ikke for eleven), lenker til eksterne
+læringsressurser, avatar med klær og emosjoner. En egen sjekkliste-
+funksjon med påminnere ble også nedprioritert, men lærere kan i prototypen
+i stedet opprette sjekklister som oppgaver. Statistikk-widgeten på
+læreroversiktssiden er en visuell plassholder og er ikke funksjonell i denne
+iterasjonen. Avgrensningene ble gjort på grunnlag av teknisk kompleksitet
+og en vurdering av hvilke funksjoner som var kritiske for å demonstrere
+prototypens kjernekonsept.
+35
+
+===== PAGE 44 =====
+5 Analyse og evaluering
+Funnene fra workshopene sammenstilles til fem designprinsipper, og
+prototypens samsvar med identifiserte behov vurderes.
+5.1 Fra behov til designprinsipper
+Gjennom empatikartene fra Workshop 1 og prikkstemmingen fra Workshop 2
+identifiserte og kategoriserte jeg som forskerdesigner et sett av tydelige
+behov og prioriteringer. Sammenfattet lot behovene seg sortere i fem
+kategorier. Viktigst var ønsket om et samlende verktøy som reduserte
+dobbeltarbeid uten å legge til enda en plattform å sette seg inn i — dette
+kom tydeligst frem i Crazy Eights-runden i Workshop 2, der flere uttrykte at
+en slik opplevelse ville kvele interessen allerede ved oppstart. Knyttet til
+dette var behovet for lav teknisk terskel: ingen lisens og minimal friksjon for
+læreren ved oppstart. I tillegg ønsket deltakerne synlig motivasjon gjennom
+poeng, nivåer og belønninger, selvinstruerende støtte som lot eleven jobbe
+uten konstant voksenpåminnelse, og felles, ikke-stigmatiserende bruk der
+hele klassen kan bruke verktøyet uten at noen skiller seg ut.
+Plattformuavhengighet som teknisk premiss var allerede etablert gjennom
+forløperprosjektet (kapittel 4.1), og er en rammebetingelse — ikke et nytt
+funn fra workshopene. Disse behovene sammenstilles til fem
+designprinsipper. Prinsippene ble artikulert etter at prototypen var under
+utvikling, basert på workshopdataene og erfaringene fra designprosessen.
+De fem prinsippene springer ut av gjennomgangen av workshopmaterialet
+(se kapittel 3.6). Fem overordnede funnområder ble identifisert: motivasjon
+og gamification, kommunikasjon og tilbakemelding, tilrettelegging og
+individualisering, oversikt og organisering, og samarbeid og tilgjengelighet.
+Prinsippene nedenfor representerer en destillering av disse funnområdene til
+36
+
+===== PAGE 45 =====
+handlingsrettede designføringer. Områdene overlapper: Hjelpekøen handler
+for eksempel både om samarbeid (læreren får varsel) og autonomi (eleven
+trenger ikke rekke opp hånda). Det er derfor prinsippene, ikke
+funnområdene, som utgjør den analytiske kjernen.
+Prinsipp 1: Universell tilgjengelighet
+Et tilbakevendende funn i workshopdataene er deltakernes ønske om at
+verktøyet skal kunne brukes av alle elever, ikke bare de med særskilte
+behov. I den første workshopen uttrykte gruppen som arbeidet med
+lærerpersona Njål et tydelig ønske om at verktøyet skulle være av en slik art
+at alle elever kan dra nytte av det. At verktøyet designes for hele klassen,
+ikke som et spesialverktøy for enkeltelever, kan redusere stigma knyttet til
+bruk av hjelpemidler. I Workshop 3 ble dette konkretisert til et operativt
+anti-stigma-kriterium gjennom forslag om usynlig prioritering i hjelpekøen,
+selektiv versjonering av oppgaver og opt-in for synlige spillelementer (se
+kapittel 6.1). Figur 7 viser elevtabellen med gjeldende modus per elev, og
+selve konfigureringen av opt-in per elev gjøres i «Administrer Elev»-
+skjermen (Figur 8). UDL og kollektiv bruk drøftes i kapittel 6.2.
+37
+
+===== PAGE 46 =====
+Figur 7: Elevtabellen i Klar — oversikt over alle elever med klasse, nivå og nåværende
+modus (Hage eller Kun Poeng). Tabellen kan sorteres etter alle kolonner.
+Figur 8 viser «Administrer Elev»-skjermen, der læreren konfigurerer
+preferanser for en enkelt elev: Blomster-spillet slås av og på per elev: ved
+deaktivering kan eleven ikke lenger tjene opp nye blomster, men en allerede
+opptjent hage beholdes. Push-varsler og streak kan deaktiveres uavhengig,
+og en personlig velkomstmelding kan skrives inn. Elevens tilgjengelige
+belønningsvalg konfigureres i et eget bibliotek, og læreren kan til enhver tid
+inspisere aktive gjøremål, fullførte oppgaver og timeplan direkte fra profilen.
+38
+
+===== PAGE 47 =====
+Figur 8: «Administrer Elev»-skjermen: innstillinger og preferanser per elev (venstre), aktive
+gjøremål og belønningsvalg (høyre).
+Prinsipp 2: Tidsbesparelse og lav terskel for læreren
+Begge empatikartene avdekket frustrasjoner knyttet til dobbeltarbeid,
+mangel på oversikt og dårlig koordinering mellom lærerne i teamet rundt
+eleven: papirplaner forsvinner, informasjon flyter ikke, og ingen vet hvem
+som har oppdatert hva. Deltakerne etterlyste et samlende verktøy, ikke enda
+et system som krever ekstraarbeid. Dersom verktøyet ikke oppleves som
+tidsbesparende, vil det trolig ikke bli tatt i bruk uansett hvor godt det er
+designet for elevene. Dette har konsekvenser for designet: funksjonene må
+oppleves som tidsbesparende, og verktøyet bør integrere seg i eksisterende
+arbeidsrutiner, for eksempel ved å importere ukeplaner som lærerne allerede
+har laget (Figur 9). Gjenbrukbare biblioteker og gjentakende
+oppgaver/belønninger reduserer manuelle steg, og opt-ins (kronbladspill,
+oppmøtestreak) lar verktøyet være lett å ta i bruk og tilpasses den enkelte
+elev.
+39
+
+===== PAGE 48 =====
+Figur 9: Smart Import — AI-parset ukebrev: innholdet tolket til strukturerte seksjoner,
+beskjeder og læringsmål (venstre), og genererte timeplaner for 7B og 7C klar til
+gjennomgang og publisering (høyre).
+Prinsipp 3: Motivasjon gjennom spillelementer
+Forslag knyttet til gamification (poeng, nivåer, belønninger og
+fremdriftsindikatorer) mottok samlet sett flest stemmer i prikkstemmingen,
+og alle deltakerne kom med idéer på dette området.
+Kronblader/belønningssystem, avatar med lærerros, ukeplan med fargekoder
+og ferdigstilte gjøremål-bunke illustrerer bredden (se Vedlegg 15).
+Prototypen realiserer disse forslagene gjennom blant annet et XP- og
+belønningssystem, en interaktiv blomsterhage og lærerreaksjoner via push-
+varsler (se Figur 10 og Tabell 1). I Workshop 3 ble prinsippet nyansert: opt-
+in som premiss, klassefellesskap som motvekt til individfokuset, og at
+belønninger kan være løsrevet fra aktiviteten for enkelte elever (se kapittel
+6.1). Diskusjonen av virkninger og fallgruver føres i kapittel 6.2.
+40
+
+===== PAGE 49 =====
+Figur 10: Belønningssystemet i Klar — fra level-up med valg av premie (øverst venstre),
+fargelegging av nytt kronblad (øverst høyre), fullført blomst feires (nederst venstre) til
+blomsterhagen der eleven plasserer blomstene sine (nederst høyre). For kupong-flyten, se
+Vedlegg 18.
+Prinsipp 4: Plattformuavhengighet og enkel tilgang
+I forløperprosjektet ble det identifisert at eksisterende digitale hjelpemidler
+ofte er plattformavhengige og lisenspliktige, noe som begrenser
+tilgjengeligheten (se kapittel 1.1.1 og 2.4). Lærerdesignerne løftet frem
+dette behovet i begge workshopene, og webapplikasjonsformatet ble beholdt
+som et eksplisitt designvalg for å sikre at verktøyet er tilgjengelig på alle
+enheter uten installasjon eller lisens.
+Prinsipp 5: Autonomistøtte
+Allerede i empatiøvelsen i den første workshopen uttrykte deltakerne ønske
+om et verktøy som er selvinstruerende, slik at eleven kan begynne å jobbe
+41
+
+===== PAGE 50 =====
+uten å bli minnet på hva som skal gjøres hele tiden, og læreren frigjøres til å
+følge opp flere. Flere av idéene handler om å gi eleven verktøy for å klare
+seg mer selvstendig: hjelpekøen og tidsindikator (se Vedlegg 15).
+Hjelpekøen kan skape et mulighetsrom for elever som synes det er vanskelig
+å rekke opp hånda i klassen, eller som arbeider mye på grupperom av ulike
+årsaker. I tillegg støtter prototypen medieinnlevering der eleven kan
+dokumentere arbeidet sitt gjennom lydopptak, bilde fra kamera eller
+bildeopplasting, noe som gir alternative uttrykksformer for elever som
+strever med skriftlig produksjon.
+Autonomistøtte innebærer at verktøyet hjelper eleven til å bli mer
+selvstendig over tid, ikke mer avhengig. Det er et viktig skille mellom
+verktøy som gjør noe for eleven og verktøy som gjør eleven i stand til å
+gjøre noe selv, og det er det sistnevnte som er intensjonen bak dette
+designprinsippet. I Workshop 3 ble prinsippet artikulert gjennom en stillas-
+og krykke-metafor: hjelpemiddelet skal kunne trekkes tilbake etter hvert
+som eleven mestrer mer (se kapittel 6.1). Koblingen drøftes i kapittel 6.2 og
+Figur 11 viser funksjonene.
+42
+
+===== PAGE 51 =====
+Figur 11: Autonomistøtte i Klar — innleveringsmodalen med medieinnlevering (øverst
+venstre), tidsindikatoren med gjenstående tid i timen (øverst høyre), elevens hjelpekøplass
+(nederst venstre) og hjelpekølisten sett fra lærersiden (nederst høyre).
+5.2 Prototypens samsvar med identifiserte behov
+Tabell 1 gir en oversikt over hvordan behov fra workshopene er koblet til
+designprinsipper og konkrete funksjoner i prototypen:
+Tabell 1: Designprinsipper og implementering
+Designprinsipp Behov fra Funksjon i Klar Status Validering i
+workshops WS3
+Universell Verktøy alle Alle elever i en Implementert Sterk validering,
+tilgjengelighet elever kan ha klasse kan ha konkretisert som
+nytte av brukerkonto, ikke anti-stigma
+bare de med
+diagnose
+Tidsbesparelse for Forhindre AI-parsing av Implementert Sterkest
+læreren dobbeltarbeid, ukebrev (Smart validering (AI-
+Import), oppgave-
+43
+
+===== PAGE 52 =====
+samlende og parsing
+verktøy belønningstildeling fremhevet)
+til grupper, med
+gjenbrukbare maler,
+daglige vikarbrukere
+Motivasjon/gamification Poeng, XP-system, nivåer, Implementert Validert med
+belønninger, blomsterhage med nyansering (opt-
+progresjon, kronblader, in,
+blomster belønningskuponger, klassefellesskap)
+konfetti,
+oppmøtestreak,
+halvveisfeiring,
+avatarvelger,
+reaksjon fra lærer
+på pushvarsler
+Plattformuavhengighet Tilgjengelig på Responsiv Implementert Implisitt validert
+alle enheter webapplikasjon
+(Next.js), ingen
+installasjon eller
+lisens
+Autonomistøtte Hjelpekø, Hjelpekø med FIFO- Delvis Sterk validering,
+tidsindikator, system, implementert artikulert som
+sjekkliste tidsindikator per stillas-/krykke-
+time, sjekkliste som prinsipp
+oppgaver, lydstøtte
+(TTS),
+medieinnlevering
+(lyd, kamera, bilde)
+Tabellen viser at fire av fem designprinsipper er fullt implementert i
+prototypen. Autonomistøtte er delvis implementert: Hjelpekøen er på plass,
+men tidsindikatoren er kun implementert som gjenværende tid i en
+undervisningstime, ikke per oppgave slik workshopdeltakerne foreslo.
+Sjekkliste-funksjonalitet er ikke implementert som egen funksjon; lærere
+44
+
+===== PAGE 53 =====
+kan i stedet opprette sjekklister som oppgaver. Push-varsler til smartklokke,
+som ble høyt stemt i Workshop 2 (se Vedlegg 15), er kun implementert som
+pushvarsler i nettleseren per nå.
+45
+
+===== PAGE 54 =====
+6 Evaluering, diskusjon og konklusjon
+Kapittelet åpner med en evaluering av designproduktet gjennom Workshop
+3, og diskuterer deretter funnene i lys av det teoretiske rammeverket i
+kapittel 2. Denne studien plasserer seg i March og Smiths (1995, s. 255–
+257) build- og evaluate-aktiviteter. De fem designprinsippene representerer
+et theorize-bidrag i March og Smiths (1995, s. 256) forstand — et forsøk på
+å artikulere hva som er lært slik at kunnskapen kan ha verdi utover den
+konkrete situasjonen. Fullstendig empirisk validering (justify) faller utenfor
+oppgavens omfang og adresseres i kapittel 6.4.
+6.1 Evaluering av designproduktet
+Workshop 3 er den evaluerende fasen i designprosessen, der
+lærerdesignerne møtte den fungerende prototypen Klar gjennom tre
+brukerscenarier (se kapittel 4.6). Evalueringen er kvalitativ og formativ.
+Målet er å vurdere hvordan de fem designprinsippene fra kapittel 5.1 er
+realisert i Klar, og å avdekke prototypens styrker, svakheter og
+videreutviklingsbehov. Funnene drøftes prinsipp for prinsipp.
+6.1.1 Universell tilgjengelighet
+Prinsippet ble validert gjennom et gjennomgående tema deltakerne selv
+artikulerte: appen må gi læreren detaljert informasjon (hvem trenger hva,
+hvem har individuell plan, hvem står i hjelpekø) uten at denne informasjonen
+blir synlig for medelever på en stigmatiserende måte. Tre konkrete
+designforslag bygger eksplisitt på dette: usynlig prioritering i hjelpekøen, slik
+at læreren kan løfte en elev framover uten at de andre ser det; selektiv
+versjonering av oppgaver gjennom en huk-av-elever-funksjon slik at
+tilpassede oppgaver fortsatt fremstår som «én og samme oppgave» i
+klasserommet; og opt-in for synlige spillelementer som streak og
+46
+
+===== PAGE 55 =====
+blomsterhage. Funnet konkretiserer prinsippet om universell tilgjengelighet
+til et operativt anti-stigma-kriterium som er tettere koblet til Cramer et al.
+(2011) sin forståelse av kollektiv bruk enn formuleringen i kapittel 5.1
+antydet.
+6.1.2 Tidsbesparelse for læreren
+Dette prinsippet ble validert sterkere enn forventet. AI-parsing av
+ukeplanleggeren, funksjonen som leser et Word-dokument og automatisk
+distribuerer timeplan, lekser, beskjeder og oppgaver, ble fremhevet som
+klart tidsbesparende. Sammen med vikarlinken med midnatt-reset og den
+automatiske oppgavedistribusjonen peker dette mot at administrative
+tidstyver er det området lærerdesignerne sterkest kjenner igjen verdi i.
+Dette har en strategisk implikasjon utover prinsippet i seg selv:
+tidsbesparelse kan fungere som den primære adopsjonsdriveren for lærere
+uten elever med eksekutive vansker som direkte incentiv. Skal Klar nå
+målgruppen elever den er bygget for, må den først oppleves som et
+tidsbesparende verktøy for lærerne som velger å ta den i bruk.
+6.1.3 Motivasjon gjennom spillelementer
+Prinsippet ble akseptert, men nyansert på flere måter. Opt-in ble framhevet
+som premiss for at synlige spillelementer skal være etisk forsvarlige i
+klasserommet. Klassefellesskap ble løftet fram som motvekt til det implisitte
+individfokuset i gamification: en felles blomsterhage for klassen, en
+klassepott der eleven kan velge å gi poengene sine til fellesskapet, og
+klassebelønninger. Forslaget er en kritikk av at motivasjonssystemet i
+utgangspunktet er individuelt, og kobler prinsippet til SDTs tredje
+grunnbehov (relatedness, jf. kapittel 6.2). Forskerdesigner pekte i tillegg på
+at belønninger kan bli løsrevet fra aktiviteten for elever på autismespekteret,
+47
+
+===== PAGE 56 =====
+og at den ytre motivasjonen må arbeides aktivt med før den indre. Endelig
+skapte ferdigbunken to adskilte pain points: arkiv-ikonet ble misforstått som
+sletteknapp, og den røde badgen ble beskrevet som stressende og
+angstutløsende. Halvveis-modalen (Figur 12), basert på en WS2-idé, er
+informasjonstett og bør forenkles i neste iterasjon. Disse punktene er
+kosmetiske, men illustrerer at gamification-elementer ikke er nøytrale
+signaler, og at små visuelle valg kan undergrave prinsippet de er ment å
+støtte.
+Figur 12: Halvveis-modalen. Modalen samler XP-fremdrift, neste nivås belønninger og
+anbefalt neste oppgave i én visning — vurdert som informasjonstett og kandidat for
+forenkling i neste iterasjon.
+6.1.4 Plattformuavhengighet
+Prinsippet ble validert implisitt: workshopen brukte parallelt PC, telefon og
+iPad uten friksjon, og ble ikke utfordret på dette punktet. Fraværet av
+48
+
+===== PAGE 57 =====
+eksplisitt diskusjon tolkes som at plattformuavhengigheten i Klar er
+tilstrekkelig realisert til at den ikke fremstår som et problem for deltakerne.
+6.1.5 Autonomistøtte
+Prinsippet fikk sin tydeligste artikulasjon gjennom stillas-/krykke-metaforen
+som forskerdesigneren introduserte og som deltakerne tok opp og
+videreutviklet: hjelpemiddelet er som en krykke og et stillas, og målet er at
+det skal kunne trekkes tilbake etter hvert som eleven mestrer mer. Dette gir
+prinsippet et vokabular som mangler i kapittel 5.1: autonomistøtte handler
+om hjelp som skal kunne trekkes tilbake. Hjelpekøen ble validert som
+lavterskel måte å be om hjelp og som anerkjennelse for elever som ser at
+flere strever, men også problematisert: ved køplass over ti kan sårbare
+elever miste motivasjonen, og dersom eleven har valgt en interessant
+venteoppgave kan tilbakekomsten til den opprinnelige oppgaven framstå
+som et tap. Et beslektet forslag om at eleven skal kunne knytte
+hjelpekøplassen til en spesifikk oppgave, slik at læreren ser hva eleven har
+sittet fast med, gjenstår som uimplementert pga. tidsrammen. Forslagene
+konvergerte mot en lukket sandkasse av relevante venteoppgaver (KI-
+genererte øvinger per fag og trinn, klikkbare eksempel- og
+algoritmesjekklister, og et lærerkuratert sett av oppgaver) i stedet for fri
+tilgang til hele oppgaveporteføljen som i prototypen i dag. Dette er en
+konkret operasjonalisering av prinsippet og samtidig en peker mot videre
+iterasjoner.
+Ingen av prinsippene ble forkastet. Det mest interessante ved evalueringen
+var kanskje ikke at prinsippene ble bekreftet, men at de fikk et språk de
+manglet: anti-stigma-kriterium, opt-in, stillas-uttrekking og klassefellesskap
+er begreper som fikk sin operative form i møtet med prototypen. Det kom
+også frem konkrete forbedringspunkter, fra kosmetiske endringer via
+49
+
+===== PAGE 58 =====
+funksjoner som krever ny logikk (selektiv versjonering, vikarvisning med
+flagg for individuell plan, lukket sandkasse for venteoppgaver) til større
+utviklingsspor (KI-generert øvingsmodus, klassefellesskap-modus, gradert
+stillas-uttrekking). At én workshop genererte så mange forslag tyder på at
+prototypen er klar nok for brukertesting, men at videre iterasjoner trengs.
+6.2 Sammenheng med det teoretiske rammeverket
+6.2.1 Universell utforming og kollektiv bruk
+Cramer et al. (2011, s. 9) fant at interaktive visuelle planer designet for hele
+klasserommet skapte positive fellesskapspraksiser, og anbefaler at slik
+kollektiv bruk også utforskes for andre populasjoner enn autisme. Dette
+korresponderer direkte med prinsipp 1: Lærerdesignerne ønsket et verktøy
+for alle, for å unngå stigmatisering. I kapittel 2.2 drøftes dette i lys av UDL-
+rammeverket. Plattformen gjør det mulig for læreren å gi alle elever i
+klassen brukerkonto, med mulighet for individuell tilpasning uten at det er
+synlig for medelever. Tilnærmingen er ment å bygge bro mellom
+spesialpedagogisk støtte og universell utforming: Verktøyet skal være
+spesialisert, men ikke ekskluderende. Workshop 3 konkretiserte dette til et
+operativt anti-stigma-kriterium: usynlig kø-prioritering, selektiv versjonering
+der tilpassede oppgaver fortsatt fremstår som «én og samme oppgave» i
+klasserommet, og opt-in for synlige spillelementer (se kapittel 6.1). Kollektiv
+bruk i Cramer et al.s forstand handler dermed ikke bare om at alle har
+tilgang, men om at differensiering er usynlig for medelever.
+6.2.2 Gamification og motivasjon
+Prinsipp 3, motivasjon gjennom spillelementer, finner støtte i
+forskningslitteraturen som drøftes i kapittel 2.3. Plattformens XP-system,
+nivåer, blomsterhage og oppmøtestreak bygger på denne logikken:
+50
+
+===== PAGE 59 =====
+Spillelementene er ment å gi eleven synlig progresjon og umiddelbar
+bekreftelse på fullført arbeid.
+Plattformens belønninger er eksplisitt ytre motivatorer — en risiko Ryan og
+Deci (2000, s. 59) dokumenterer i kapittel 2.3. At de likevel kan ha verdi,
+hviler på to premisser. For det første er mange skoleoppgaver ikke iboende
+interessante, og for slike er internalisert ytre motivasjon en realistisk
+målsetting (Ryan & Deci, 2000, s. 60–62). For det andre er spillelementene
+designet for mestring og progresjon, ikke konkurranse, et skille Hamari et al.
+(2014, s. 6) fremhever som avgjørende. SDT skiller dessuten mellom
+kontrollerende og informasjonelle belønninger; sistnevnte undergraver ikke
+nødvendigvis indre motivasjon (Ryan & Deci, 2000, s. 58).
+For elever med eksekutive vansker er bildet ytterligere nyansert:
+symboløkonomi — drøftet i kapittel 2.3 — kan fungere som eksternt stillas
+inntil indre regulering modnes.
+Forslaget om klassefellesskap-modus fra Workshop 3, med felles
+blomsterhage, klassepott og valgfri overføring av poeng, kobler
+motivasjonsprinsippet til SDTs tredje grunnbehov, relatedness (Ryan & Deci,
+2000, s. 64). I sin opprinnelige form var prinsipp 3 individrettet;
+lærerdesignernes forslag flytter det mot prososial atferd og demper risikoen
+for at gamification forsterker en konkurranselogikk som virker mot
+inkluderingsformålet.
+6.2.3 Tilgjengelighet og digitale barrierer
+Som drøftet i kapittel 2.4, forutsetter digitale læringsplattformer eksekutive
+ferdigheter eleven ennå ikke nødvendigvis har opparbeidet seg. Prinsipp 4,
+plattformuavhengighet, adresserer i tillegg de praktiske tilgangsbarrierene
+(plattformavhengighet, lisenskostnader og lange anskaffelsesprosesser) som
+ofte begrenser hvilke elever som faktisk får tilgang til kompenserende
+51
+
+===== PAGE 60 =====
+verktøy. Ved å implementere plattformen som en responsiv webapplikasjon
+uten krav til installasjon, lisens eller spesifikt operativsystem, fjernes flere av
+disse barrierene. Det fremtidige produktet er tenkt som åpent og fritt
+tilgjengelig, og bør ikke begrenses av økonomi eller teknisk infrastruktur.
+6.2.4 Autonomi og selvstendighet
+Det femte designprinsippet, autonomistøtte, korresponderer med det
+teoretiske grunnlaget i kapittel 2.5. Flere av plattformens funksjoner speiler
+scaffolding-logikken: Hjelpekøen gir eleven mulighet til å be om hjelp uten å
+rekke opp hånda, men initiativet ligger hos eleven selv — noe som gjør
+autonomistøtte og motivasjon gjennom spillelementer til gjensidig
+forsterkende prinsipper snarere enn uavhengige. Stillas-/krykke-metaforen
+som ble artikulert i Workshop 3, der målet er at hjelpemiddelet gradvis kan
+trekkes tilbake etter hvert som eleven mestrer mer, gir prinsippet et
+eksplisitt språk for dette: autonomistøtte handler ikke bare om
+tilstedeværelse av hjelp, men om uttrekkbarhet av hjelp. At autonomistøtte
+er det eneste prinsippet som kun er delvis implementert (se Tabell 1),
+reflekterer nettopp denne designmessige utfordringen: Å bygge et verktøy
+som hjelper uten å skape avhengighet — risikoen Koyama og Wang (2011, s.
+2240) kaller prompt dependency — krever nøye kalibrering av når og
+hvordan støtten trekkes tilbake.
+6.2.5 Deltakende design i skolen
+Farmer (2021, s. 65–66) viser at lærere som meddesignere bidrar med
+praksiskunnskap som ofte mangler i profesjonelt utviklede løsninger. Det
+kom tydelig frem i dette prosjektet: lærerdesignernes bidrag var preget av
+konkret, erfaringsbasert kunnskap om elevenes hverdag som vanskelig lar
+seg fange gjennom kravspesifikasjoner alene.
+52
+
+===== PAGE 61 =====
+6.3 Begrensninger
+Metodiske begrensninger knyttet til deltakergruppe, forskerens sammensatte
+rolle, tidsstruktur og bruk av ferdiglagde personas er redegjort for i kapittel
+3.8. Her oppsummeres begrensninger som knytter seg til selve
+designproduktet og evalueringen av det.
+Prototypen Klar er evaluert i én workshop med fire deltakere — tre
+kontaktlærere og én lærerstudent, alle fra samme barneskole. Tre av
+deltakerne hadde fulgt prosjektet fra Workshop 1, og er dermed ikke blanke
+evaluatorer: deres fortrolighet med prosjektets idégrunnlag kan ha gjort
+terskelen for å være kritisk lavere enn den ville vært i en evaluering med
+utenforstående lærere. Den fjerde deltakeren, en lærerstudent, ga et friskt
+blikk, men én ny stemme balanserer ikke dette fullt ut. Tre av ni
+scenariokort ble brukt. De seks som ikke ble brukt kunne ha avdekket pain
+points knyttet til andre situasjoner.
+Viktigere er det at evalueringen er gjennomført med lærerdesignere, ikke
+med elever. Lærerne kan vurdere sannsynlig nytte og brukervennlighet for
+elevene de kjenner, men de kan ikke erstatte elevenes egen opplevelse av
+verktøyet. Den faktiske effekten på elever med eksekutive vansker, om Klar
+oppleves som motiverende, som stigmaforebyggende, og som et stillas som
+faktisk kan trekkes tilbake, er ikke testet i denne studien. Dette er studiens
+mest vesentlige produktrelaterte begrensning, og den førende begrunnelsen
+for at brukertesting med elever utgjør neste steg (se kapittel 6.4).
+Ingen av forbedringspunktene fra Workshop 3 er implementert i prototypen
+som leveres med denne oppgaven. Selektiv versjonering av oppgaver,
+vikarvisning som markerer elever med individuell plan, lukket sandkasse for
+venteoppgaver og klassefellesskap-modus er identifisert som nødvendige
+videreutviklinger, ikke som ferdige løsninger. Klar er en instantiation i
+53
+
+===== PAGE 62 =====
+designvitenskapelig forstand (March & Smith, 1995, s. 257–258), ikke et
+ferdig produkt.
+6.4 Veien videre
+Flere spor peker seg ut for videre utvikling. Det mest åpenbare er
+brukertesting med elever: Å la elever med eksekutive vansker bruke
+plattformen over tid, og samle inn data om opplevd nytte, brukervennlighet
+og motivasjonseffekt. I Sanders og Stappers' (2014, s. 10–11) rammeverk
+(se Figur 2) utgjør dette post-designfasen: forskning på hvordan brukerne
+faktisk opplever det ferdige produktet. En slik evaluering vil kunne gi svar på
+spørsmål som denne studien ikke kan besvare.
+En annen retning er å inkludere elever som meddesignere. Elevene deltok
+som meddesignere i forløperprosjektet, men er ikke direkte deltakere i dette
+prosjektets workshops. Å involvere dem i fremtidige iterasjoner ville gitt en
+stemme til den gruppen verktøyet til syvende og sist er laget for.
+Inkludering av foresatte som meddesignere og brukere er et annet aktuelt
+spor. Flere workshopdeltakere uttrykte ønske om at foresatte skal kunne
+følge med på elevens oppgaver og progresjon – en funksjonalitet som ikke er
+implementert, men som berører spørsmål om transparens, personvern og
+grensen mellom skolens og hjemmets ansvar.
+Skalering til andre skoler og trinn er et tredje spor. Designprinsippene er
+utviklet i konteksten av en barneskole, men behovene de svarer på
+(struktur, oversikt og motivasjon) er relevante på tvers av trinn. Tilpasning
+til ungdomstrinnet eller videregående vil kreve justeringer i
+grensesnittdesignet, mens den underliggende arkitekturen og prinsippene
+kan ha overføringsverdi. Hvorvidt prinsippene faktisk har gyldighet utenfor
+denne studiens kontekst (én norsk barneskole, seks lærere og én
+54
+
+===== PAGE 63 =====
+lærerstudent) krever videre forskning gjennom brukertesting med elever og
+utprøving i andre skolekontekster.
+AI-parseringen av ukebrev og ukeplanleggere kan videreutvikles teknisk.
+Den ble fremhevet som det sterkest validerte enkeltfunnet i Workshop 3 og
+fungerer som en sentral adopsjonsdriver. Andre videreutviklingsspor fra
+Workshop 3, slik som selektiv versjonering, klassefellesskap-modus, lukket
+sandkasse av venteoppgaver og gradert uttrekking av spill- og
+støtteelementer i tråd med stillas-prinsippet, er beskrevet i kapittel 6.1.
+Push-varsler direkte til smartklokke, den høyest stemte idéen i Workshop 2,
+gjenstår som en teknisk krevende fremtidig funksjon.
+6.5 Konklusjon
+Denne oppgaven har utforsket hvordan et digitalt hjelpemiddel kan designes
+ved hjelp av deltakende design med lærere, med den hensikt å støtte elever
+med eksekutive vansker i å strukturere og prioritere skolearbeid. Gjennom
+en designprosess som følger de tre første fasene i Sanders og Stappers'
+(2014, s. 10–11) rammeverk er det destillert fem designprinsipper (se Tabell
+1) ut av workshopmaterialet, og en fungerende prototype — Klar —
+demonstrerer at prinsippene lar seg realisere. Workshop 3 validerte alle fem
+prinsipper i møtet med prototypen, og ga samtidig vokabular og operative
+kriterier (anti-stigma, opt-in, stillas-uttrekking, klassefellesskap) som peker
+mot videre iterasjoner.
+De fem prinsippene gir samlet et svar på problemstillingen — Hvordan kan et
+digitalt hjelpemiddel designes for å støtte elever med eksekutive vansker i å
+strukturere og prioritere skolearbeid? — og kan oppsummeres slik: Universell
+tilgjengelighet og lav teknisk terskel handler om det samme: verktøyet må
+nå hele klassen uten søknader, installasjoner eller lisenser — ellers når det
+ikke elevene det er ment for. Tidsbesparelse for læreren er ikke et
+55
+
+===== PAGE 64 =====
+kompromiss, men forutsetningen for at verktøyet overhodet tas i bruk.
+Motivasjon gjennom spillelementer er mulig uten å skape konkurranse,
+forutsatt at det er opt-in og ivaretar klassefellesskapet fremfor å isolere
+enkeltelevers prestasjoner. Og autonomistøtte handler ikke om mer hjelp,
+men om hjelp som gradvis kan trekkes tilbake etter hvert som eleven
+mestrer mer. Hjelpekøen, AI-parsing av ukebrev, lukket sandkasse av
+venteoppgaver og graderte spill- og støtteelementer er konkrete
+operasjonaliseringer som ble utviklet gjennom designprosessen.
+Studien viser hvordan deltakende design med lærere kan avdekke behov og
+generere lokale designprinsipper for digitale hjelpemidler rettet mot elever
+med eksekutive vansker. De fem prinsippene er studiens konkrete bidrag:
+spesifiserte gjennom lærernes egne prioriteringer operasjonaliserer de UDL-
+og gamification-litteraturen til designkriterier for norsk barneskolekontekst —
+noe generelle anbefalinger alene ikke gir. Sanders og Stappers' (2014, s.
+10–11) fjerde fase, post-design, peker mot neste steg: brukertesting med
+elever for å undersøke om designprinsippene resulterer i et verktøy som
+oppleves som nyttig av dem det er laget for.
+56
+
+===== PAGE 65 =====
+Litteraturliste
+Alabdulakareem, E., & Jamjoom, M. (2020). Computer-assisted learning for
+improving ADHD individuals' executive functions through gamified
+interventions: A review. Entertainment Computing, 33, 100341.
+https://doi.org/10.1016/j.entcom.2020.100341
+Andersen, H. V., & Jensen, R. H. S. (2018). Assistive learning technologies
+for learners with ADHD and ASD: A review 2006–2016. Læring og
+Medier (LOM), 11(19). https://doi.org/10.7146/lom.v11i19.109755
+Blomberg, J., & Karasti, H. (2013). Ethnography: Positioning ethnography
+within Participatory Design. I J. Simonsen & T. Robertson (Red.),
+Routledge international handbook of participatory design (s. 86–116).
+Routledge.
+Bratteteig, T., Bødker, K., Dittrich, Y., & Mogensen, P. H. (2013).
+Researching and practicing participatory design. I J. Simonsen & T.
+Robertson (Red.), Routledge international handbook of participatory
+design (s. 117–144). Routledge.
+https://doi.org/10.4324/9780203108543
+Cramer, M., Hirano, S. H., Tentori, M., Yeganyan, M. T., & Hayes, G. R.
+(2011). Classroom-based assistive technology: Collective use of
+interactive visual schedules by students with autism. Proceedings of
+the SIGCHI Conference on Human Factors in Computing Systems (s.
+1–10). ACM. https://doi.org/10.1145/1978942.1978944
+Deterding, S., Dixon, D., Khaled, R., & Nacke, L. (2011). From game design
+elements to gamefulness: Defining "gamification." Proceedings of the
+15th International Academic MindTrek Conference (s. 9–15). ACM.
+https://doi.org/10.1145/2181037.2181040
+57
+
+===== PAGE 66 =====
+Diamond, A. (2013). Executive functions. Annual Review of Psychology, 64,
+135–168. https://doi.org/10.1146/annurev-psych-113011-143750
+Dorsch, M. (2024). Digital Impact on Middle School Student Executive
+Functioning: Lessons Learned from Student Interface with Learning
+Management Systems [Doktoravhandling, Saint Joseph's University].
+ProQuest LLC.
+Endmann, A., & Keßner, D. (2016). User journey mapping – A method in
+user experience design. i-com, 15(1), 105–110.
+https://doi.org/10.1515/icom-2016-0010
+Farmer, T. S. (2021). Utilizing Codesign to Create K–12 Online and Hybrid
+Learning Resources [Doktoravhandling, Purdue University].
+Ferreira, B., Silva, W., Oliveira, E., & Conte, T. (2015). Designing personas
+with empathy map. Proceedings of the 27th International Conference
+on Software Engineering and Knowledge Engineering (SEKE '15), 501–
+505. https://doi.org/10.18293/seke2015-152
+Gunnars, F. (2024). A systematic review of special educational interventions
+for student attention: Executive function and digital technology in
+primary school. Journal of Special Education Technology.
+https://doi.org/10.1177/01626434231198226
+Hamari, J., Koivisto, J., & Sarsa, H. (2014). Does gamification work? A
+literature review of empirical studies on gamification. Proceedings of
+the 47th Hawaii International Conference on System Sciences (s.
+3025–3034). IEEE. https://doi.org/10.1109/HICSS.2014.377
+Janeslätt, G., Kottorp, A., & Granlund, M. (2014). Evaluating intervention
+using time aids in children with disabilities. Scandinavian Journal of
+Occupational Therapy, 21(3), 181–190.
+58
+
+===== PAGE 67 =====
+Kim, S. C. (2025). Verification of the effectiveness of a token economy
+method through digital intervention content for children with attention-
+deficit/hyperactivity disorder. Bioengineering, 12(10), 1035.
+https://doi.org/10.3390/bioengineering12101035
+Knapp, J., Zeratsky, J., & Kowitz, B. (2016). Sprint: How to solve big
+problems and test new ideas in just five days. Simon & Schuster.
+Koyama, T., & Wang, H.-T. (2011). Use of activity schedule to promote
+independent performance of individuals with autism and other
+intellectual disabilities: A review. Research in Developmental
+Disabilities, 32(6), 2235–2242.
+Lewrick, M., Link, P., & Leifer, L. (2018). The design thinking playbook:
+Mindful digital transformation of teams, products, services, businesses
+and ecosystems. Wiley.
+March, S. T., & Smith, G. F. (1995). Design and natural science research on
+information technology. Decision Support Systems, 15(4), 251–266.
+Matson, J. L., & Boisjoli, J. A. (2009). The token economy for children with
+intellectual disability and/or autism: A review. Research in
+Developmental Disabilities, 30(2), 240–248.
+https://doi.org/10.1016/j.ridd.2008.04.001
+NAV. (2023). Kalendere, dagsplanleggere og tidtakere (Rammeavtale 21-
+8450 og 22-15497, gyldig 01.03.2023–28.02.2027). FinnHjelpemiddel.
+https://finnhjelpemiddel.nav.no/rammeavtale/hjelpemidler/de45889f-
+e4cd-45a2-9b36-5652594e1fba
+NAV. (u.å.-a). HandiKalender for iOS/Android (Delkontrakt 5, rangering 3).
+FinnHjelpemiddel. Hentet 8. mai 2026 fra
+59
+
+===== PAGE 68 =====
+https://finnhjelpemiddel.nav.no/produkt/3cb13111-b7ea-42a3-b769-
+7755d171fe08
+NAV. (u.å.-b). MemoAssist Plus Premium (Delkontrakt 5, rangering 1).
+FinnHjelpemiddel. Hentet 8. mai 2026 fra
+https://finnhjelpemiddel.nav.no/produkt/02fcadfa-ff22-4c23-96f3-
+d12c01db5be3
+Robertson, T., & Wagner, I. (2013). Ethics: Engagement, representation and
+politics-in-action. I J. Simonsen & T. Robertson (Red.), Routledge
+international handbook of participatory design (s. 64–85). Routledge.
+Ryan, R. M., & Deci, E. L. (2000). Intrinsic and extrinsic motivations: Classic
+definitions and new directions. Contemporary Educational Psychology,
+25(1), 54–67. https://doi.org/10.1006/ceps.1999.1020
+Sanders, E. B.-N., & Stappers, P. J. (2014). Probes, toolkits and prototypes:
+Three approaches to making in codesigning. CoDesign, 10(1), 5–14.
+https://doi.org/10.1080/15710882.2014.888183
+Sewell, A., Kennett, A., & Pugh, V. (2022). Universal Design for Learning as
+a theory of inclusive practice for use by educational psychologists.
+Educational Psychology in Practice, 38(4), 364–378.
+https://doi.org/10.1080/02667363.2022.2111677
+Simonsen, J., & Robertson, T. (Red.). (2013). Routledge international
+handbook of participatory design. Routledge.
+https://doi.org/10.4324/9780203108543
+Swartzendruber, L. M. (2024). Shaping Futures: A Phenomenological Study
+of Teachers Supporting Middle School Students' Executive Functioning
+Skills [Doktoravhandling, Drake University]. ProQuest LLC.
+60
+
+===== PAGE 69 =====
+Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem
+solving. Journal of Child Psychology and Psychiatry, 17(2), 89–100.
+https://doi.org/10.1111/j.1469-7610.1976.tb00381.x
+Yrjönsuuri, V., Kangas, K., Hakkarainen, K., & Seitamaa-Hakkarainen, P.
+(2019). The roles of material prototyping in collaborative design
+process at an elementary school. Design and Technology Education,
+24(2), 141–161.
+61
+
+===== PAGE 70 =====
+Vedlegg
+Vedlegg 1: Sonden: Elevgrensesnitt
+Skjermbildene viser elevgrensesnittet i sonden – prototypen fra H2024 som
+lærerne utforsket i forkant av Workshop 1. Sonden hadde kun et
+elevgrensesnitt. Lærerne logget inn som de fiktive elevpersonaene Erik og
+Sofia for å oppleve verktøyet fra elevperspektivet.
+Sondens landingsside med fagkort, notifikasjonsbadges og nivåindikator
+Fagvisning (Matematikk) med oppgavekort, tidsfrist og lenke til læringsressurs
+62
+
+===== PAGE 71 =====
+Fullføringsdialog der eleven bekrefter at oppgaven er ferdig
+Landingssiden etter fullført oppgave med oppdatert fremdriftsbar og fjernet fagkort
+Vedlegg 2: Sonden: Administrasjonsgrensesnitt
+Skjermbildene viser Django-administrasjonsgrensesnittet som ble brukt til å
+sette opp sonden. Forskerdesigneren opprettet brukerkontoer, profiler og
+oppgaver her, og viste grensesnittet kort for deltakerne ved starten av
+Workshop 1. Lærerne hadde ikke selv tilgang til dette grensesnittet – all
+administrasjon ble utført av forskerdesigneren.
+63
+
+===== PAGE 72 =====
+Django admin-oversikt med datamodeller for autentisering, profiler og oppgaver
+Brukerliste med testkontoer for elevpersonaene Erik og Sofia
+64
+
+===== PAGE 73 =====
+Profilliste med rolletildeling (Student/Teacher)
+Profildetalj med gamification-felt (totalpoeng og nivå)
+65
+
+===== PAGE 74 =====
+Oversikt over tildelte oppgaver med fag, tittel, prioritet og tidsfrist
+Skjema for å opprette ny oppgave i administrasjonsgrensesnittet
+Vedlegg 3: Scenariokort til Workshop 3
+Scenariokortene ble brukt i journey mapping-aktiviteten i Workshop 3. Ni
+kort ble utviklet, og tre ble valgt ut og brukt i workshopen. Kortene er
+utviklet med støtte fra ChatGPT 5.3 (OpenAI) basert på behov identifisert i
+Workshop 1 og 2.
+66
+
+===== PAGE 75 =====
+Vedlegg 3 — side 1
+67
+
+===== PAGE 76 =====
+Vedlegg 3 — side 2
+68
+
+===== PAGE 77 =====
+Vedlegg 3 — side 3
+69
+
+===== PAGE 78 =====
+Vedlegg 4: Invitasjon til deltakelse
+Invitasjon til deltakelse — side 1
+70
+
+===== PAGE 79 =====
+Invitasjon til deltakelse — side 2
+71
+
+===== PAGE 80 =====
+Invitasjon til deltakelse — side 3
+72
+
+===== PAGE 81 =====
+Vedlegg 5: Samtykkeskjema
+Samtykkeskjema for deltakelse i masterprosjektet
+73
+
+===== PAGE 82 =====
+Vedlegg 6: Sikt-vurdering
+Sikt – Kunnskapssektorens tjenesteleverandør har vurdert og godkjent
+behandlingen av personopplysninger i prosjektet.
+Vedlegg 6 — Sikt-vurdering, side 1
+74
+
+===== PAGE 83 =====
+Vedlegg 6 — Sikt-vurdering, side 2
+Vedlegg 7: Personas
+Personaene er utviklet med ChatGPT 5.3 (OpenAI) og brukt som
+designverktøy i workshopprosessen. Elevpersonaene er fiktive og
+75
+
+===== PAGE 84 =====
+representerer elever med eksekutive vansker. Lærerpersonaene
+representerer ulike lærerstillinger og perspektiver. Alle personnavn og
+bakgrunnsopplysninger er oppdiktede.
+Elevpersona: Erik
+Elevpersona Erik, side 1 — utviklet med ChatGPT 5.3 (OpenAI)
+76
+
+===== PAGE 85 =====
+Elevpersona Erik, side 2 — utviklet med ChatGPT 5.3 (OpenAI)
+77
+
+===== PAGE 86 =====
+Elevpersona: Sofia
+Elevpersona Sofia, side 1 — utviklet med ChatGPT 5.3 (OpenAI)
+78
+
+===== PAGE 87 =====
+Elevpersona Sofia, side 2 — utviklet med ChatGPT 5.3 (OpenAI)
+79
+
+===== PAGE 88 =====
+Lærerpersona: Njål
+Lærerpersona Njål, side 1 — utviklet med ChatGPT 5.3 (OpenAI)
+80
+
+===== PAGE 89 =====
+Lærerpersona Njål, side 2 — utviklet med ChatGPT 5.3 (OpenAI)
+81
+
+===== PAGE 90 =====
+Lærerpersona: Jonas
+Lærerpersona Jonas, side 1 — utviklet med ChatGPT 5.3 (OpenAI)
+82
+
+===== PAGE 91 =====
+Lærerpersona Jonas, side 2 — utviklet med ChatGPT 5.3 (OpenAI)
+83
+
+===== PAGE 92 =====
+Lærerpersona: Ane
+Lærerpersona Ane, side 1 — utviklet med ChatGPT 5.3 (OpenAI)
+84
+
+===== PAGE 93 =====
+Lærerpersona Ane, side 2 — utviklet med ChatGPT 5.3 (OpenAI)
+Vedlegg 8: Empatikart fra Workshop 1
+Empatikartene ble fylt ut av to separate grupper i Workshop 1. Hver gruppe
+arbeidet med én lærerpersona og brukte Empathy Map Canvas (Lewrick et
+al., 2018) for å utforske personaens perspektiv.
+85
+
+===== PAGE 94 =====
+Empatikart for lærerpersona Jonas (ITO/spesialpedagog)
+86
+
+===== PAGE 95 =====
+Empatikart for lærerpersona Njål (faglærer)
+Vedlegg 9: Eksempelskisser vist i Workshop 2
+Følgende skisser ble vist for deltakerne i forkant av Crazy Eights-aktiviteten i
+Workshop 2 for å demonstrere den lave terskelen for visuell kvalitet.
+87
+
+===== PAGE 96 =====
+Skissene var bevisst enkle og upolerte, og hadde ingen tilknytning til Klar-
+prosjektet for å unngå å legge føringer.
+Eksempelskisse 1: Konseptskisse av en musikkapp og en tekstsammenstillingsfunksjon
+88
+
+===== PAGE 97 =====
+Eksempelskisse 2: Wireframe-skisser av «Skolestudio» og «Multi» med ASK-støtte
+89
+
+===== PAGE 98 =====
+Vedlegg 10: Redegjørelse for bruk av generativ KI
+Formål og avgrensning
+Generativ KI er brukt som støtteverktøy i deler av arbeidet med denne
+masteroppgaven. Alle metodiske, analytiske og fortolkningsmessige
+vurderinger er forfatterens egne. KI-verktøy er ikke brukt til å generere data,
+analysere transkripsjoner eller trekke slutninger; de har utelukkende tjent
+som arbeidsverktøy i skriving, litteraturbearbeiding og teknisk
+utviklingsarbeid.
+Verktøy og bruksområder
+ChatGPT 5.3 (OpenAI) er brukt som skrivepartner gjennom hele prosessen:
+til å gi tilbakemelding på utkast, prøve ut argumentasjonsrekker og
+formulere overganger. Alle forslag er gjennomgått og revidert av forfatteren.
+ChatGPT 5.3 er også brukt til å utvikle personas (Vedlegg 7) og scenarioer
+(Vedlegg 3) og til å generere grafikk og illustrasjoner i personadokumentene.
+NotebookLM (Google) er brukt i arbeidet med pensum- og
+bakgrunnslitteraturen. Kildesammendrager og kritiske gjennomganger er
+benyttet som supplement til forfatterens egne notater og lesning — ikke som
+erstatning.
+Google Gemini 2.5 Pro og GitHub Copilot (med Claude Sonnet) er brukt i
+prototypeutviklingen. Arbeidsmåten er det som omtales som agentisk
+koding: forfatteren som forskerdesigner har tatt alle designbeslutninger og
+definert funksjonskrav, mens selve kodegenereringen er overlatt til
+modellene med løpende gjennomgang og korreksjon. Prototypen ble utviklet
+i én sammenhengende periode mellom Workshop 2 og 3 med basis i analyse
+av workshopdata fra begge foregående workshopene.
+90
+
+===== PAGE 99 =====
+Personvern
+Personopplysninger fra prosjektet er ikke delt med noen KI-tjeneste.
+Ansvar
+Forfatteren tar fullt faglig ansvar for alt innhold i denne oppgaven. Veileder
+er konsultert på overordnet nivå. Bruken av KI er i tråd med OsloMets
+retningslinjer for akademisk integritet ved bruk av generativ KI.
+Vedlegg 11: Workshop 2 — Sammenfattelse og
+designprinsipper
+Dokumentet ble sendt til lærerdesignerne i god tid før Workshop 3 for å
+gjenopprette kontekst etter den lange pausen mellom workshopene. Det
+oppsummerer funn fra Workshop 1 og 2 og presenterer de destillerte
+designprinsippene som grunnlag for den evaluerende fasen.
+91
+
+===== PAGE 100 =====
+Vedlegg 11 — side 1
+92
+
+===== PAGE 101 =====
+Vedlegg 11 — side 2
+93
+
+===== PAGE 102 =====
+Vedlegg 11 — side 3
+Vedlegg 12: Empatikart-funn fra Workshop 1
+Sammenstilling av frustrasjoner, ønsker og motivasjon for de to
+lærerpersonaene Njål (faglærer) og Jonas (ITO/spesialpedagog), basert på
+empatikartene gruppene fylte ut i Workshop 1 (se også Vedlegg 8).
+94
+
+===== PAGE 103 =====
+Njål (faglærer) Jonas (ITO/spesialpedagog)
+Frustrasjoner Opplever utilstrekkelighet. Har Opplever dårlig kommunikasjon
+gitt opp de analoge i teamet rundt eleven. Mange
+dagsplanene som ITO-lærer har forskjellige voksne involveres.
+anbefalt. Opplever dårlig Papirbaserte dagsplaner
+læringsmiljø i timen han har i forsvinner. Lite oversikt over
+klassen. hvorvidt aktiviteter er påbegynt
+eller fullført. Opplever at
+elevens funksjonsevne er
+avhengig av hans
+tilstedeværelse.
+Ønsker Et velfungerende digitalt Et digitalt hjelpemiddel som
+verktøy som støtter elevene i oppdaterer seg dynamisk.
+læringssituasjonen. Visuelle planer. At faglærere
+Tidsbesparende og oversiktlig. også kan legge inn
+Forhindre dobbeltarbeid. Et informasjon.
+samlende verktøy for teamet
+rundt eleven. Et verktøy alle
+elever kan nyttiggjøre seg av,
+for å forhindre følelsen av
+annerledeshet.
+Motivasjon Ikke fremkommet eksplisitt i Anerkjennelse, at andre
+empatikartøvelsen. interesserer seg for eleven,
+mestring hos eleven.
+Vedlegg 13: Funksjoner i Klar med rot i designprosessen
+Oversikt over funksjoner som er implementert i prototypen Klar, med deres
+opphav i designprosessen (sonden, Workshop 1, Workshop 2).
+Funksjon i Klar Opphav i designprosessen
+Gamification (XP, nivåer, konfetti) Sonden (H2024) + WS1 (poengvisning,
+belønninger)
+95
+
+===== PAGE 104 =====
+Blomsterhage med kronblader WS2: Kronblader/belønningssystem (5
+stemmer)
+Hjelpekø WS2: Hjelpefunksjon med kø (6 stemmer)
+Gruppesystem for lærere WS2: Hjelpekø (6 stemmer) + empatikart: ITO
+på tvers
+Lydstøtte (tekst-til-tale) WS1: Lydstøtte med innlest oppgavetekst
+Velkomstmelding og daglige meldinger WS1: Velkomstmelding + WS2: Personlig
+velkomst (5 stemmer)
+Ukeplan med fargekoder per fag WS1: Fargekoder + WS2: Ukeplan med
+fargekoder (5 stemmer)
+Tidssporing (nedtelling per time) WS2: Tidsindikator/timeglass (4 stemmer)
+Lærergrensesnitt med oppgavetildeling WS1: Grensesnitt for lærere
+Belønninger med kuponger WS1: Reelle belønninger + WS2: Belønninger på
+flere nivåer
+Elevspesifikke belønninger WS1 + WS2: Reelle belønninger tilpasset
+enkeltelever
+Quiz-funksjon WS2: Sjekkliste/test (5 stemmer); quiz
+implementert, sjekkliste-del ikke prioritert
+AI-parsing av ukebrev WS1: Tidsbesparelse, forhindre dobbeltarbeid
+Oppgavebibliotek med gjenbrukbare maler WS1: Tidsbesparelse + WS2: Forhindre
+dobbeltarbeid
+Gjentakende oppgaver WS1: Dynamisk oppdatering + WS2:
+Tidsbesparelse
+Fagarkiv med ferdigstilte gjøremål WS2: Ferdigstilte gjøremål-bunke (6 stemmer)
+Oppmøtestreak med akkumulert modus WS1: Åpne appen bør gi poeng + bekymring om
+streakbrudd
+96
+
+===== PAGE 105 =====
+Halvveisfeiring WS1: Indikator som viser at eleven nærmer seg
+belønning
+Medieinnlevering (lyd, kamera, bilde) WS1: Lydstøtte + alternative uttrykksformer
+Returnering av oppgaver WS1 + WS2: Revisjon av fullføring +
+gamification-integritet
+Vikaradministrasjon med daglige lenker WS1: Vikarbruker + WS2: Daglig generert
+passord
+Avatarvelger WS2: Progresjon med avatar (4 stemmer)
+Lærerreaksjoner og tilbakemeldinger WS2: Avatar med lærerros (5 stemmer)
+Push-varsler til lærere WS2: Push-varsler til smartklokke (6 stemmer)
+Vedlegg 14: Crazy Eights-ark med prikkstemming fra
+Workshop 2
+Hvert Crazy Eights-ark er et A3-ark brettet i åtte felt, der deltakerne hadde
+omtrent ett minutt per felt til å skissere eller beskrive en idé. De fargede
+prikkene ble påført i evalueringsfasen etterpå, der deltakerne stemte på
+idéene de opplevde som mest verdifulle.
+97
+
+===== PAGE 106 =====
+Crazy Eights 1: Åtte idéer med prikkstemming
+98
+
+===== PAGE 107 =====
+Crazy Eights 2: Åtte idéer med prikkstemming
+99
+
+===== PAGE 108 =====
+Crazy Eights 3: Åtte idéer med prikkstemming
+100
+
+===== PAGE 109 =====
+Crazy Eights 4: Åtte idéer med prikkstemming
+101
+
+===== PAGE 110 =====
+Crazy Eights 5: Åtte idéer med prikkstemming
+102
+
+===== PAGE 111 =====
+Crazy Eights 6: Åtte idéer med prikkstemming
+Vedlegg 15: Topp-stemte idéer fra Workshop 2
+De ti høyest stemte idéene fra prikkstemmingen i Workshop 2.
+103
+
+===== PAGE 112 =====
+Idé Stemmer Beskrivelse
+Push-varsler til smartklokke 6 Læreren mottar varsel på
+smartklokke eller enhet når en
+elev fullfører en oppgave.
+Ferdigstilte gjøremål-bunke 6 En «bunke» med fullførte
+oppgaver som eleven kan se
+over og eventuelt revidere.
+Hjelpefunksjon med kø 6 Eleven trykker på en knapp
+dersom hen trenger hjelp.
+Læreren får varsel, og elevene
+organiseres i kø. Frigjør eleven
+til å arbeide fremfor å sitte med
+hånda oppe.
+Avatar med lærerros 5 Lærer oppretter en avatar som
+ligner seg selv, og leser inn
+motiverende beskjeder som
+dukker opp når eleven fullfører
+oppgaver.
+Kronblader/belønningssystem 5 Eleven fargelegger kronblader
+for hver fullførte time. Ti
+blomster gir en belønning.
+Belønninger på flere nivåer.
+Ukeplan med fargekoder + 5 Ukeplan over timer med faste
+oppgaveliste fargekoder per fag og oppgaver
+listet opp med poengverdier.
+Sjekkliste/test 5 Sjekklister eller tester for hva
+eleven har lært, som fylles ut i
+løsningen.
+Personlig velkomstmelding + 5 Personlig velkomst til eleven og
+lekent design et lekent design med motiver
+som hjerter eller andre figurer.
+104
+
+===== PAGE 113 =====
+Sjekkliste «har du husket» 4 Sjekkliste som dukker opp for
+eleven ved innlevering, med
+kriterier som for eksempel
+rettskriving.
+Tidsindikator 4 Visualisering av gjenværende
+tid i timen; idéen inkluderte
+også nedtelling per oppgave.
+I tillegg mottok hamburgermeny med navigasjon, kommentarfelt for voksne
+og progresjon med avatar 4 stemmer hver.
+Vedlegg 16: Fotografier fra Workshop 3 — journey mapping
+Bildene viser de fysiske journey map-plakatene som deltakerne fylte ut
+under Workshop 3. Workshopen dekket tre brukerscenarier: 1C
+(kontaktlærer med klasse), 4B (vikardag) og 2C (elev sitter fast i en
+oppgave). Hvert scenario er dokumentert med scenariokort, gule steg
+(brukerreisen), opplevelseskurve samt pains, gains og forslag.
+105
+
+===== PAGE 114 =====
+Vedlegg 16-1: Oversikt over alle tre journey map-plakater
+Vedlegg 16-2: Scenario 1C — scenariokort
+106
+
+===== PAGE 115 =====
+Vedlegg 16-3: Scenario 1C — gule steg (brukerreisen)
+Vedlegg 16-4: Scenario 1C — opplevelseskurve
+107
+
+===== PAGE 116 =====
+Vedlegg 16-5: Scenario 1C — forslag om mindre scrolling
+Vedlegg 16-6: Scenario 1C — forslag om oversikt «14 av 21 levert»
+108
+
+===== PAGE 117 =====
+Vedlegg 16-7: Scenario 1C — pain: varsler fra flere fag
+Vedlegg 16-8: Scenario 1C — pain: blankt innlevert og uklart antall
+109
+
+===== PAGE 118 =====
+Vedlegg 16-9: Scenario 1C — gain: kan følge elever på tvers
+Vedlegg 16-10: Scenario 4B — scenariokort
+110
+
+===== PAGE 119 =====
+Vedlegg 16-11: Scenario 4B — gule steg: planer
+Vedlegg 16-12: Scenario 4B — gule steg: ITO
+111
+
+===== PAGE 120 =====
+Vedlegg 16-13: Scenario 4B — gule steg: beskjed
+Vedlegg 16-14: Scenario 4B — gule steg: tilpass
+112
+
+===== PAGE 121 =====
+Vedlegg 16-15: Scenario 4B — oversiktskart
+113
+
+===== PAGE 122 =====
+Vedlegg 16-16: Scenario 4B — forslag om beskjed hjemmefra
+Vedlegg 16-17: Scenario 4B — gain: «digg med AI»
+114
+
+===== PAGE 123 =====
+Vedlegg 16-18: Scenario 4B — pain: vikar og ITO, gain: trygghet
+Vedlegg 16-19: Scenario 4B — forslag om timeplan som markerer
+115
+
+===== PAGE 124 =====
+Vedlegg 16-20: Scenario 4B — forslag om tilpass og huk av
+Vedlegg 16-21: Scenario 4B — pain: ny eller endre hver enkelt
+116
+
+===== PAGE 125 =====
+Vedlegg 16-22: Oversikt over scenario 1C og 4B
+Vedlegg 16-23: Scenario 2C — scenariokort
+117
+
+===== PAGE 126 =====
+Vedlegg 16-24: Scenario 2C — gule steg: hjelpekø og annen oppgave
+Vedlegg 16-25: Scenario 2C — gule steg: lærer kommer
+118
+
+===== PAGE 127 =====
+Vedlegg 16-26: Scenario 2C — oversiktskart
+Vedlegg 16-27: Scenario 2C — pains og gains nærbilde
+119
+
+===== PAGE 128 =====
+Vedlegg 16-28: Scenario 2C — pains og gains nærbilde 2
+Vedlegg 16-29: Scenario 2C — forslag om KI-eksempeloppgaver
+120
+
+===== PAGE 129 =====
+Vedlegg 16-30: Scenario 2C — forslag om å begrense frie oppgaver
+121
+
+===== PAGE 130 =====
+Vedlegg 17: Sammenfatning av funn fra Workshop 3
+Pains, gains og forslag fra hvert av de tre brukerscenariene som ble kartlagt i
+Workshop 3.
+Scenario Pains Gains Forslag
+1C: Kontaktlærer med Mangel på aggregert Å kunne følge elever Mindre scrolling i
+klasse oversikt («hvor mange man ikke er i samme klasse-velgeren;
+har levert?»); elever rom som oversikt i timeplanen;
+leverer blankt eller klikkbar lenketracking
+skriver tull men det
+står «levert»; ingen
+tracking av eksterne
+lenker; varslingsstøy
+fra flere fag
+4B: Vikardag fra senga Vikar ser ikke hvem «Digg med AI. Sparer Selektiv versjonering
+som har individuell masse tid» (AI-parsing (huk av elever en
+plan; av ukeplanlegger); endring skal gjelde
+oppgavetilpasning «Føles godt å gi for); markering i
+krever kopiering for trygghet» (personlig timeplanen av elever
+hver enkelt elev velkomstmelding) med individuell plan;
+oversikt over
+beskjeder hjemmefra
+2C: Eleven sitter fast Lang kø (10+) kan Synlig kø normaliserer KI-genererte
+skape uro eller å trenge hjelp; lærer øvingsoppgaver per
+oppgivelse hos sårbare kan løfte elev opp i fag/trinn; klikkbare
+elever; eleven kan køen usynlig for andre; eksempel-/algoritme-
+miste motivasjon ved eleven kan jobbe med sjekklister;
+tilbakekomst hvis hen en oppgave hen er lærerkuratert sett av
+jobbet med en mer motivert til mens hen venteoppgaver framfor
+interessant oppgave i venter fri tilgang til hele
+ventetiden oppgaveporteføljen
+122
+
+===== PAGE 131 =====
+Vedlegg 18: Belønningssystem — kupongflyten
+Kupong-flyten viser det alternative belønningssporet i Klar, der eleven tjener
+opp reelle belønninger fra læreren (f.eks. «Tegne» eller «Ri på hest i
+friminuttet») gjennom symboløkonomi. Eleven kan vise kupongen frem for
+læreren og løse den inn. Etter innløsning havner kupongen i premieskapet
+som en historikk over innfridde belønninger.
+Vedlegg 18 — Kupong-flyten: Mine Kuponger med aktiv kupong (venstre),
+bekreftelsesmodal for innløsning med lærerpåminnelse (midten) og premieskap med innløste
+kuponger (høyre).
+123
